@@ -1,3 +1,4 @@
+import math
 class rightcurclularcode:
     # here surface area of right circular cone is pi* r^2  + pi* r* s
     # here time complexity is O(1) - constant time complexity
@@ -7,7 +8,7 @@ class rightcurclularcode:
         self.r = r
         self.h = h
     def get_surface_area(self):
-        return 3.14 * self.r * self.r + 3.14 * self.r * self.s
+        return math.pi * self.r * self.r + math.pi * self.r * self.s
 
 
 r = int(input("enter the radius of the right circular cone: "))

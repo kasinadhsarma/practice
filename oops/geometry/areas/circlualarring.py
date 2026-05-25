@@ -1,3 +1,4 @@
+import math
 class circularring:
     # area of circular ring is pi * (R^2 - r^2)
     # here time complexity is O(1) - constant time complexity
@@ -7,7 +8,7 @@ class circularring:
         self.R = R
         self.r = r
     def get_area(self):
-        return 3.14 * (self.R * self.R - self.r * self.r)
+        return math.pi * (self.R * self.R - self.r * self.r)
 
 
 R = int(input("enter the outer radius of the circular ring: "))

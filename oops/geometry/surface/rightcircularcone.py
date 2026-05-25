@@ -1,3 +1,4 @@
+import math
 class rightcircularcone:
     # s = root of r^2  + h^2
     # surface area = pi * r * r + pi * r * s
@@ -9,7 +10,7 @@ class rightcircularcone:
         self.h = h
     def get_surface_area(self):
         s = (self.r * self.r + self.h * self.h) ** 0.5
-        return 3.14 * self.r * self.r + 3.14 * self.r * s  
+        return math.pi * self.r * self.r + 3.14 * self.r * s  
 
 
 r = int(input("enter the radius of the right circular cone: "))

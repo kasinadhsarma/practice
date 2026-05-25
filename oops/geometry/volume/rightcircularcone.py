@@ -1,3 +1,4 @@
+import math
 class rightcircularcone:
     # here volume of right circular cone is (1/3) * pi * r^2 * h
     # time complexity is O(1) - constant time complexity
@@ -7,7 +8,7 @@ class rightcircularcone:
         self.r = r
         self.h = h
     def get_volume(self):
-        return (1/3) * 3.14 * self.r * self.r * self.h
+        return (1/3) * math.pi * self.r * self.r * self.h
 
 
 r = int(input("enter the radius of the right circular cone: "))

@@ -1,3 +1,4 @@
+import math
 class cylinder:
     # here surface area of cylinder is 2 * pi * r * (h + r)
     # time complexity is O(1) - constant time complexity
@@ -7,7 +8,7 @@ class cylinder:
         self.r = r
         self.h = h
     def get_surface_area(self):
-        return 2 * 3.14 * self.r * (self.h + self.r)
+        return 2 * math.pi * self.r * (self.h + self.r)
 
 
 r = int(input("enter the radius of the cylinder: "))
