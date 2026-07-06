@@ -2,7 +2,8 @@
 tests/dsa/test_dsa_sorting.py
 ==============================
 Tests for all sorting algorithms under dsa/sorting/:
-    BubbleSort · InsertionSort · SelectionSort · MergeSort · QuickSort
+    BubbleSort · InsertionSort · SelectionSort · MergeSort · QuickSort ·
+    HeapSort · CountingSort · RadixSort · ShellSort
 """
 
 import pytest
@@ -25,6 +26,18 @@ def _MergeSort():
 def _QuickSort():
     return load_module('dsa/sorting/quicksort.py',     ['1 2 3'], alias='dsa_quick').QuickSort
 
+def _HeapSort():
+    return load_module('dsa/sorting/heapsort.py',      ['1 2 3'], alias='dsa_heapsort').HeapSort
+
+def _CountingSort():
+    return load_module('dsa/sorting/countingsort.py',  ['1 2 3'], alias='dsa_countingsort').CountingSort
+
+def _RadixSort():
+    return load_module('dsa/sorting/radixsort.py',     ['1 2 3'], alias='dsa_radixsort').RadixSort
+
+def _ShellSort():
+    return load_module('dsa/sorting/shellsort.py',     ['1 2 3'], alias='dsa_shellsort').ShellSort
+
 
 # ── Shared test cases ──────────────────────────────────────────────────────────
 
@@ -39,6 +52,20 @@ SORT_CASES = [
     ([-3, 0, 1, -1, 2],          [-3, -1, 0, 1, 2]),        # negatives
     ([-5, -1, -3, -2, -4],       [-5, -4, -3, -2, -1]),     # all negative
     ([2, 1],                      [1, 2]),                   # two elements
+]
+
+# RadixSort only supports non-negative integers (documented limitation)
+NONNEGATIVE_SORT_CASES = [
+    ([5, 2, 8, 1, 9],            [1, 2, 5, 8, 9]),
+    ([1, 2, 3, 4, 5],            [1, 2, 3, 4, 5]),
+    ([5, 4, 3, 2, 1],            [1, 2, 3, 4, 5]),
+    ([42],                        [42]),
+    ([],                          []),
+    ([3, 1, 4, 1, 5, 9, 2, 6],   [1, 1, 2, 3, 4, 5, 6, 9]),
+    ([1, 1, 1, 1],                [1, 1, 1, 1]),
+    ([170, 45, 75, 90, 802, 24, 2, 66], [2, 24, 45, 66, 75, 90, 170, 802]),
+    ([0, 0, 0],                   [0, 0, 0]),
+    ([2, 1],                      [1, 2]),
 ]
 
 
@@ -115,3 +142,55 @@ class TestQuickSort:
         random.seed(0)
         arr = [random.randint(-1000, 1000) for _ in range(500)]
         assert _QuickSort()(arr.copy()).sort() == sorted(arr)
+
+
+class TestHeapSort:
+
+    @pytest.mark.parametrize("arr, expected", SORT_CASES)
+    def test_sort(self, arr, expected):
+        assert _HeapSort()(arr.copy()).sort() == expected
+
+    def test_large_input(self):
+        import random
+        random.seed(1)
+        arr = [random.randint(-1000, 1000) for _ in range(500)]
+        assert _HeapSort()(arr.copy()).sort() == sorted(arr)
+
+
+class TestCountingSort:
+
+    @pytest.mark.parametrize("arr, expected", SORT_CASES)
+    def test_sort(self, arr, expected):
+        assert _CountingSort()(arr.copy()).sort() == expected
+
+    def test_is_stable_preserves_element_counts(self):
+        arr = [4, 2, 2, 8, 4, 1]
+        result = _CountingSort()(arr.copy()).sort()
+        assert sorted(result) == sorted(arr)
+        assert result == sorted(arr)
+
+
+class TestRadixSort:
+
+    @pytest.mark.parametrize("arr, expected", NONNEGATIVE_SORT_CASES)
+    def test_sort(self, arr, expected):
+        assert _RadixSort()(arr.copy()).sort() == expected
+
+    def test_large_input(self):
+        import random
+        random.seed(2)
+        arr = [random.randint(0, 100000) for _ in range(500)]
+        assert _RadixSort()(arr.copy()).sort() == sorted(arr)
+
+
+class TestShellSort:
+
+    @pytest.mark.parametrize("arr, expected", SORT_CASES)
+    def test_sort(self, arr, expected):
+        assert _ShellSort()(arr.copy()).sort() == expected
+
+    def test_large_input(self):
+        import random
+        random.seed(3)
+        arr = [random.randint(-1000, 1000) for _ in range(500)]
+        assert _ShellSort()(arr.copy()).sort() == sorted(arr)

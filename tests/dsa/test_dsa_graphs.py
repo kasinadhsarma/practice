@@ -2,7 +2,8 @@
 tests/dsa/test_dsa_graphs.py
 =============================
 Tests for graph algorithms under dsa/graphs/:
-    BFS · DFS · KruskalsMST · PrimsMST
+    BFS · DFS · KruskalsMST · PrimsMST · Dijkstra · BellmanFord ·
+    TopologicalSort · FloydWarshall · DetectCycle · ConnectedComponents
 """
 
 import pytest
@@ -21,6 +22,24 @@ def _KruskalsMST():
 
 def _PrimsMST():
     return load_module('dsa/graphs/prims_minimum_spanning_tree.py',['0','A'], alias='dsa_prims').PrimsMST
+
+def _Dijkstra():
+    return load_module('dsa/graphs/dijkstra.py', ['0','A'], alias='dsa_dijkstra').Dijkstra
+
+def _BellmanFord():
+    return load_module('dsa/graphs/bellman_ford.py', ['0','A'], alias='dsa_bellmanford').BellmanFord
+
+def _TopologicalSort():
+    return load_module('dsa/graphs/topological_sort.py', ['0'], alias='dsa_toposort').TopologicalSort
+
+def _FloydWarshall():
+    return load_module('dsa/graphs/floyd_warshall.py', ['0'], alias='dsa_floydwarshall').FloydWarshall
+
+def _DetectCycle():
+    return load_module('dsa/graphs/detect_cycle.py', ['0'], alias='dsa_detectcycle').DetectCycle
+
+def _ConnectedComponents():
+    return load_module('dsa/graphs/connected_components.py', ['0'], alias='dsa_components').ConnectedComponents
 
 
 # ── Shared graphs ─────────────────────────────────────────────────────────────
@@ -181,3 +200,173 @@ class TestPrimsMST:
         }
         mst, cost = _PrimsMST()(graph).minimum_spanning_tree('A')
         assert cost == 4 and len(mst) == 3
+
+
+class TestDijkstra:
+    """
+    Directed graph:
+        A -4-> B      A -1-> C -2-> B      B -1-> D      C -5-> D
+    Shortest: A=0, C=1 (direct), B=3 (via C), D=4 (via C,B)
+    """
+
+    GRAPH = {
+        'A': [('B', 4), ('C', 1)],
+        'B': [('D', 1)],
+        'C': [('B', 2), ('D', 5)],
+        'D': [],
+    }
+
+    def test_shortest_distances(self):
+        dist = _Dijkstra()(self.GRAPH).shortest_paths('A')
+        assert dist == {'A': 0, 'B': 3, 'C': 1, 'D': 4}
+
+    def test_unreachable_node_is_infinity(self):
+        graph = {'A': [('B', 1)], 'B': [], 'C': []}
+        dist = _Dijkstra()(graph).shortest_paths('A')
+        assert dist['C'] == float('inf')
+
+    def test_single_node(self):
+        dist = _Dijkstra()({'A': []}).shortest_paths('A')
+        assert dist == {'A': 0}
+
+    def test_direct_edge_beaten_by_shorter_path(self):
+        # A->B direct is 4, but A->C->B is 1+2=3, so 3 must win
+        dist = _Dijkstra()(self.GRAPH).shortest_paths('A')
+        assert dist['B'] == 3
+
+
+class TestBellmanFord:
+
+    def test_shortest_distances(self):
+        vertices = {'A', 'B', 'C', 'D'}
+        edges = [('A', 'B', 4), ('A', 'C', 1), ('C', 'B', 2), ('B', 'D', 1), ('C', 'D', 5)]
+        dist, has_cycle = _BellmanFord()(vertices, edges).shortest_paths('A')
+        assert dist == {'A': 0, 'B': 3, 'C': 1, 'D': 4}
+        assert has_cycle is False
+
+    def test_handles_negative_weights(self):
+        vertices = {'A', 'B', 'C'}
+        edges = [('A', 'B', 5), ('A', 'C', 2), ('C', 'B', -3)]
+        dist, has_cycle = _BellmanFord()(vertices, edges).shortest_paths('A')
+        assert dist == {'A': 0, 'B': -1, 'C': 2}
+        assert has_cycle is False
+
+    def test_detects_negative_cycle(self):
+        vertices = {'A', 'B', 'C'}
+        edges = [('A', 'B', 1), ('B', 'C', -1), ('C', 'A', -1)]
+        _, has_cycle = _BellmanFord()(vertices, edges).shortest_paths('A')
+        assert has_cycle is True
+
+    def test_unreachable_node_is_infinity(self):
+        vertices = {'A', 'B', 'C'}
+        edges = [('A', 'B', 1)]
+        dist, _ = _BellmanFord()(vertices, edges).shortest_paths('A')
+        assert dist['C'] == float('inf')
+
+
+class TestTopologicalSort:
+
+    def test_valid_dag_ordering(self):
+        graph = {'A': ['B', 'C'], 'B': ['D'], 'C': ['D'], 'D': []}
+        order = _TopologicalSort()(graph).sort()
+        assert order.index('A') < order.index('B')
+        assert order.index('A') < order.index('C')
+        assert order.index('B') < order.index('D')
+        assert order.index('C') < order.index('D')
+
+    def test_all_vertices_present(self):
+        graph = {'A': ['B', 'C'], 'B': ['D'], 'C': ['D'], 'D': []}
+        order = _TopologicalSort()(graph).sort()
+        assert set(order) == {'A', 'B', 'C', 'D'}
+
+    def test_cycle_detected(self):
+        graph = {'A': ['B'], 'B': ['C'], 'C': ['A']}
+        result = _TopologicalSort()(graph).sort()
+        assert result == "Graph has a cycle — no topological order exists"
+
+    def test_disconnected_dag(self):
+        graph = {'A': ['B'], 'B': [], 'C': ['D'], 'D': []}
+        order = _TopologicalSort()(graph).sort()
+        assert order.index('A') < order.index('B')
+        assert order.index('C') < order.index('D')
+
+
+class TestFloydWarshall:
+
+    def test_all_pairs_shortest_paths(self):
+        vertices = {'A', 'B', 'C', 'D'}
+        edges = [('A', 'B', 4), ('A', 'C', 1), ('C', 'B', 2), ('B', 'D', 1), ('C', 'D', 5)]
+        dist = _FloydWarshall()(vertices, edges).all_pairs_shortest_paths()
+        assert dist['A']['D'] == 4
+        assert dist['A']['B'] == 3
+        assert dist['A']['A'] == 0
+
+    def test_unreachable_pair_is_infinity(self):
+        vertices = {'A', 'B', 'C'}
+        edges = [('A', 'B', 1)]
+        dist = _FloydWarshall()(vertices, edges).all_pairs_shortest_paths()
+        assert dist['A']['C'] == float('inf')
+        assert dist['C']['A'] == float('inf')
+
+    def test_agrees_with_dijkstra(self):
+        vertices = {'A', 'B', 'C', 'D'}
+        edge_list = [('A', 'B', 4), ('A', 'C', 1), ('C', 'B', 2), ('B', 'D', 1), ('C', 'D', 5)]
+        fw_dist = _FloydWarshall()(vertices, edge_list).all_pairs_shortest_paths()
+
+        adjacency = {'A': [('B', 4), ('C', 1)], 'B': [('D', 1)], 'C': [('B', 2), ('D', 5)], 'D': []}
+        dijkstra_dist = _Dijkstra()(adjacency).shortest_paths('A')
+
+        for node in vertices:
+            assert fw_dist['A'][node] == dijkstra_dist[node]
+
+
+class TestDetectCycle:
+
+    def test_acyclic_graph(self):
+        graph = {'A': ['B', 'C'], 'B': ['D'], 'C': ['D'], 'D': []}
+        assert _DetectCycle()(graph).has_cycle() is False
+
+    def test_cyclic_graph(self):
+        graph = {'A': ['B'], 'B': ['C'], 'C': ['A']}
+        assert _DetectCycle()(graph).has_cycle() is True
+
+    def test_self_loop_is_a_cycle(self):
+        graph = {'A': ['A']}
+        assert _DetectCycle()(graph).has_cycle() is True
+
+    def test_single_node_no_edges(self):
+        assert _DetectCycle()({'A': []}).has_cycle() is False
+
+    def test_disconnected_with_cycle_in_one_component(self):
+        graph = {'A': ['B'], 'B': [], 'C': ['D'], 'D': ['C']}
+        assert _DetectCycle()(graph).has_cycle() is True
+
+
+class TestConnectedComponents:
+
+    def test_three_separate_pairs(self):
+        graph = {}
+        for u, v in [('A', 'B'), ('C', 'D'), ('E', 'F')]:
+            graph.setdefault(u, []).append(v)
+            graph.setdefault(v, []).append(u)
+        cc = _ConnectedComponents()(graph)
+        assert cc.count() == 3
+
+    def test_fully_connected_graph_is_one_component(self):
+        graph = {
+            'A': ['B', 'C'], 'B': ['A', 'C'], 'C': ['A', 'B'], 'D': ['A'],
+        }
+        # patch D into A's list too, so the graph is fully connected
+        graph['A'].append('D')
+        cc = _ConnectedComponents()(graph)
+        assert cc.count() == 1
+
+    def test_component_contents(self):
+        graph = {'A': ['B'], 'B': ['A'], 'C': []}
+        components = _ConnectedComponents()(graph).find_components()
+        component_sets = [set(c) for c in components]
+        assert {'A', 'B'} in component_sets
+        assert {'C'} in component_sets
+
+    def test_single_node(self):
+        assert _ConnectedComponents()({'A': []}).count() == 1

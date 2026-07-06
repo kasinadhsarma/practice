@@ -2,7 +2,7 @@
 
 **Location:** [`dsa/graphs/`](../dsa/graphs/)
 
-Four fundamental graph algorithms — traversal and minimum spanning tree construction — each implemented as an OOP class with detailed complexity analysis.
+Ten graph algorithms — traversal, minimum spanning trees, shortest paths, topological ordering, cycle detection, and connected components — each implemented as an OOP class with detailed complexity analysis.
 
 ---
 
@@ -75,6 +75,84 @@ Finds the **MST** by growing the tree one vertex at a time, always picking the c
 
 ---
 
+### 🛣️ Dijkstra's Algorithm — `dijkstra.py`
+
+Single-source shortest path for graphs with **non-negative** edge weights. Greedily finalises the closest not-yet-visited node using a min-heap.
+
+| Property | Detail |
+|:---|:---|
+| **Approach** | Greedy + min-heap |
+| **Requires** | Non-negative edge weights |
+| **Time Complexity** | $\mathcal{O}((V + E) \log V)$ |
+| **Space Complexity** | $\mathcal{O}(V + E)$ |
+
+---
+
+### ⚖️ Bellman-Ford Algorithm — `bellman_ford.py`
+
+Single-source shortest path that tolerates **negative** edge weights, by relaxing every edge $V-1$ times. One extra pass detects negative-weight cycles.
+
+| Property | Detail |
+|:---|:---|
+| **Approach** | Dynamic Programming — repeated edge relaxation |
+| **Handles Negative Weights** | ✅ Yes |
+| **Detects Negative Cycles** | ✅ Yes |
+| **Time Complexity** | $\mathcal{O}(V \times E)$ |
+| **Space Complexity** | $\mathcal{O}(V)$ |
+
+---
+
+### 📋 Topological Sort (Kahn's Algorithm) — `topological_sort.py`
+
+Produces a linear ordering of a DAG's vertices such that every edge `(u, v)` has `u` before `v`. Repeatedly removes vertices with in-degree 0.
+
+| Property | Detail |
+|:---|:---|
+| **Approach** | BFS via in-degree counting |
+| **Requires** | Directed Acyclic Graph (DAG) |
+| **Cycle Handling** | Returns an error message if a cycle prevents a valid ordering |
+| **Time Complexity** | $\mathcal{O}(V + E)$ |
+| **Space Complexity** | $\mathcal{O}(V)$ |
+
+---
+
+### 🗺️ Floyd-Warshall Algorithm — `floyd_warshall.py`
+
+Computes shortest distances between **every pair** of vertices at once, by considering each vertex as a potential intermediate stop.
+
+| Property | Detail |
+|:---|:---|
+| **Approach** | Dynamic Programming over intermediate vertices |
+| **Result** | Full $V \times V$ shortest-distance matrix |
+| **Time Complexity** | $\mathcal{O}(V^3)$ |
+| **Space Complexity** | $\mathcal{O}(V^2)$ |
+
+---
+
+### 🔁 Cycle Detection (Directed) — `detect_cycle.py`
+
+Detects whether a directed graph contains a cycle using three-colour DFS marking (white/gray/black) — a back edge to a GRAY (in-progress) vertex proves a cycle exists.
+
+| Property | Detail |
+|:---|:---|
+| **Approach** | DFS with three-colour marking |
+| **Time Complexity** | $\mathcal{O}(V + E)$ |
+| **Space Complexity** | $\mathcal{O}(V)$ |
+
+---
+
+### 🧩 Connected Components — `connected_components.py`
+
+Finds all connected components of an undirected graph by restarting BFS from every unvisited vertex.
+
+| Property | Detail |
+|:---|:---|
+| **Approach** | Repeated BFS from unvisited vertices |
+| **Time Complexity** | $\mathcal{O}(V + E)$ |
+| **Space Complexity** | $\mathcal{O}(V)$ |
+
+---
+
 ## BFS vs DFS — Quick Reference
 
 | | BFS | DFS |
@@ -105,4 +183,10 @@ python ./dsa/graphs/bfs.py
 python ./dsa/graphs/dfs.py
 python ./dsa/graphs/krushkals_algorithm.py
 python ./dsa/graphs/prims_minimum_spanning_tree.py
+python ./dsa/graphs/dijkstra.py
+python ./dsa/graphs/bellman_ford.py
+python ./dsa/graphs/topological_sort.py
+python ./dsa/graphs/floyd_warshall.py
+python ./dsa/graphs/detect_cycle.py
+python ./dsa/graphs/connected_components.py
 ```

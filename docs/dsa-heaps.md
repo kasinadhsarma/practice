@@ -58,9 +58,37 @@ Using repeated `heapify-down` from index `n//2 - 1` to `0`.
 ### Applications
 
 - **Priority Queues** — always process the highest-priority item first
-- **Heap Sort** — $\mathcal{O}(N \log N)$ in-place sort
-- **K Largest / K Smallest Elements**
+- **Heap Sort** — see [`dsa/sorting/heapsort.py`](../dsa/sorting/heapsort.py) ($\mathcal{O}(N \log N)$ in-place sort using this same array-heap technique)
+- **K Largest / K Smallest Elements** — see `kth_largest_element.py` below
 - **Graph Algorithms** — Prim's MST, Dijkstra's Shortest Path
+
+---
+
+## Min-Heap — `minheap.py`
+
+The mirror image of Max-Heap: every parent node is **less than or equal to** its children, so the **root always holds the minimum element**. Every comparison in Max-Heap is simply flipped.
+
+**Heap Property:** `heap[parent] <= heap[child]` for every node.
+
+### Operations
+
+| Operation | Time | Description |
+|:---|:---|:---|
+| `insert(val)` | $\mathcal{O}(\log N)$ | Append then bubble up while smaller than parent |
+| `extract_min()` | $\mathcal{O}(\log N)$ | Swap root with last element, remove, then sift down |
+| `get_min()` | $\mathcal{O}(1)$ | Return `heap[0]` |
+
+---
+
+## Kth Largest Element — `kth_largest_element.py`
+
+Finds the k-th largest value in an array **without fully sorting it**, by maintaining a min-heap bounded to size `k`. Every element is pushed; once the heap exceeds size `k`, the smallest is popped. After processing everything, the heap's minimum is exactly the k-th largest value overall.
+
+| Property | Detail |
+|:---|:---|
+| **Approach** | Bounded min-heap (via `heapq`) |
+| **Time Complexity** | $\mathcal{O}(N \log K)$ |
+| **Space Complexity** | $\mathcal{O}(K)$ |
 
 ---
 
@@ -68,15 +96,8 @@ Using repeated `heapify-down` from index `n//2 - 1` to `0`.
 
 ```bash
 python ./dsa/heaps/maxheap.py
+python ./dsa/heaps/minheap.py
+python ./dsa/heaps/kth_largest_element.py
 # Input: space-separated integers to build the heap
-# Output: max element, extracted max, remaining heap
+# Output: max/min element, extracted value, remaining heap
 ```
-
----
-
-## Min-Heap (Coming Soon)
-
-A **min-heap** follows the same structure but the root holds the **minimum element**. Useful for:
-- Dijkstra's shortest path
-- Merge K sorted lists
-- Finding the median of a data stream
