@@ -117,7 +117,8 @@ def exponential_search(arr, target):
         i *= 2
     lo = i // 2
     hi = min(i, n - 1)
-    return binary_search_iterative(arr[lo:hi+1], target)
+    result = binary_search_iterative(arr[lo:hi+1], target)
+    return result + lo if result != -1 else -1
 
 print("\nExponential Search 38 ->", exponential_search(sorted_arr, 38))  # 6
 
@@ -138,10 +139,12 @@ def fibonacci_search(arr, target):
             fib, fib1, fib2 = fib1, fib2, fib1 - fib2
             offset = i
         elif arr[i] > target:
-            fib, fib1, fib2 = fib2, fib1 - fib2, fib - fib1
+            fib = fib2
+            fib1 = fib1 - fib2
+            fib2 = fib - fib1
         else:
             return i
-    if fib1 and arr[offset + 1] == target:
+    if fib1 and offset + 1 < n and arr[offset + 1] == target:
         return offset + 1
     return -1
 

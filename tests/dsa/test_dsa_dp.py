@@ -2,8 +2,16 @@
 tests/dsa/test_dsa_dp.py
 =========================
 Tests for dynamic-programming and greedy problems under dsa/dp/:
-    Knapsack01         — 0/1 knapsack (DP bottom-up)
-    FractionalKnapsack — fractional knapsack (Greedy by ratio)
+    Knapsack01                     — 0/1 knapsack (DP bottom-up)
+    FractionalKnapsack             — fractional knapsack (Greedy by ratio)
+    LongestCommonSubsequence       — LCS length + sequence reconstruction
+    LongestIncreasingSubsequence   — LIS length (O(N^2) tabulation)
+    CoinChange                     — min coins + combination count
+    EditDistance                   — Levenshtein distance
+    HouseRobber                    — max non-adjacent sum
+    SubsetSum                      — subset-sum reachability
+    LongestPalindromicSubsequence  — interval DP
+    MatrixChainMultiplication      — interval DP, optimal parenthesisation cost
 """
 
 import pytest
@@ -17,6 +25,38 @@ def _Knapsack01():
 def _FractionalKnapsack():
     return load_module('dsa/dp/knapsack_fractional.py',
                        ['2','1 2','3 4','5'], alias='dsa_ksfrac').FractionalKnapsack
+
+def _LCS():
+    return load_module('dsa/dp/longest_common_subsequence.py',
+                       ['a','b'], alias='dsa_lcs').LongestCommonSubsequence
+
+def _LIS():
+    return load_module('dsa/dp/longest_increasing_subsequence.py',
+                       ['1 2'], alias='dsa_lis').LongestIncreasingSubsequence
+
+def _CoinChange():
+    return load_module('dsa/dp/coin_change.py',
+                       ['1 2','3'], alias='dsa_coinchange').CoinChange
+
+def _EditDistance():
+    return load_module('dsa/dp/edit_distance.py',
+                       ['a','b'], alias='dsa_editdistance').EditDistance
+
+def _HouseRobber():
+    return load_module('dsa/dp/house_robber.py',
+                       ['1 2'], alias='dsa_houserobber').HouseRobber
+
+def _SubsetSum():
+    return load_module('dsa/dp/subset_sum.py',
+                       ['1 2','3'], alias='dsa_subsetsum').SubsetSum
+
+def _LPS():
+    return load_module('dsa/dp/longest_palindromic_subsequence.py',
+                       ['a'], alias='dsa_lps').LongestPalindromicSubsequence
+
+def _MatrixChain():
+    return load_module('dsa/dp/matrix_chain_multiplication.py',
+                       ['1 2 3'], alias='dsa_matrixchain').MatrixChainMultiplication
 
 
 # ═════════════════════════════════════════════════════════════════════════════
@@ -98,3 +138,137 @@ class TestFractionalKnapsack:
     def test_greedy_optimal(self):
         """item-1 ratio=3 > item-0 ratio=2, cap=7: take all item-1 (2kg,6) then item-0 (5kg,10)."""
         assert _FractionalKnapsack()([5,2],[10,6],7).max_value() == pytest.approx(16.0)
+
+
+class TestLongestCommonSubsequence:
+
+    @pytest.mark.parametrize("s1, s2, expected_len", [
+        ("ABCBDAB", "BDCABA", 4),
+        ("abc", "abc", 3),
+        ("abc", "def", 0),
+        ("", "abc", 0),
+        ("", "", 0),
+        ("abcde", "ace", 3),
+    ])
+    def test_length(self, s1, s2, expected_len):
+        assert _LCS()(s1, s2).length() == expected_len
+
+    def test_sequence_is_valid_subsequence_of_both(self):
+        lcs = _LCS()("ABCBDAB", "BDCABA")
+        seq = lcs.sequence()
+        assert len(seq) == lcs.length()
+        # verify it's actually a subsequence of both strings
+        def is_subsequence(sub, s):
+            it = iter(s)
+            return all(c in it for c in sub)
+        assert is_subsequence(seq, "ABCBDAB")
+        assert is_subsequence(seq, "BDCABA")
+
+    def test_identical_strings_sequence(self):
+        assert _LCS()("hello", "hello").sequence() == "hello"
+
+
+class TestLongestIncreasingSubsequence:
+
+    @pytest.mark.parametrize("arr, expected", [
+        ([10, 9, 2, 5, 3, 7, 101, 18], 4),
+        ([0, 1, 0, 3, 2, 3], 4),
+        ([7, 7, 7, 7], 1),
+        ([], 0),
+        ([5], 1),
+        ([1, 2, 3, 4, 5], 5),
+        ([5, 4, 3, 2, 1], 1),
+    ])
+    def test_length(self, arr, expected):
+        assert _LIS()(arr).length() == expected
+
+
+class TestCoinChange:
+
+    @pytest.mark.parametrize("coins, amount, expected", [
+        ([1, 2, 5], 11, 3),
+        ([2], 3, -1),
+        ([1], 0, 0),
+        ([1, 3, 4], 6, 2),
+    ])
+    def test_min_coins(self, coins, amount, expected):
+        assert _CoinChange()(coins, amount).min_coins() == expected
+
+    @pytest.mark.parametrize("coins, amount, expected", [
+        ([1, 2, 5], 5, 4),
+        ([2, 3], 5, 1),
+        ([1, 2, 3], 4, 4),
+        ([1], 0, 1),
+    ])
+    def test_count_combinations(self, coins, amount, expected):
+        assert _CoinChange()(coins, amount).count_combinations() == expected
+
+
+class TestEditDistance:
+
+    @pytest.mark.parametrize("s1, s2, expected", [
+        ("horse", "ros", 3),
+        ("intention", "execution", 5),
+        ("", "", 0),
+        ("abc", "", 3),
+        ("", "abc", 3),
+        ("abc", "abc", 0),
+    ])
+    def test_calculate(self, s1, s2, expected):
+        assert _EditDistance()(s1, s2).calculate() == expected
+
+
+class TestHouseRobber:
+
+    @pytest.mark.parametrize("money, expected", [
+        ([1, 2, 3, 1], 4),
+        ([2, 7, 9, 3, 1], 12),
+        ([], 0),
+        ([5], 5),
+        ([2, 1], 2),
+        ([1, 2], 2),
+        ([5, 5, 10, 100, 10, 5], 110),
+    ])
+    def test_max_amount(self, money, expected):
+        assert _HouseRobber()(money).max_amount() == expected
+
+
+class TestSubsetSum:
+
+    @pytest.mark.parametrize("nums, target, expected", [
+        ([3, 34, 4, 12, 5, 2], 9, True),
+        ([3, 34, 4, 12, 5, 2], 30, False),
+        ([1, 2, 3], 0, True),
+        ([], 0, True),
+        ([], 5, False),
+        ([5], 5, True),
+    ])
+    def test_has_subset_with_sum(self, nums, target, expected):
+        assert _SubsetSum()(nums).has_subset_with_sum(target) == expected
+
+
+class TestLongestPalindromicSubsequence:
+
+    @pytest.mark.parametrize("s, expected", [
+        ("bbbab", 4),
+        ("cbbd", 2),
+        ("a", 1),
+        ("", 0),
+        ("racecar", 7),
+        ("abcd", 1),
+    ])
+    def test_length(self, s, expected):
+        assert _LPS()(s).length() == expected
+
+
+class TestMatrixChainMultiplication:
+
+    @pytest.mark.parametrize("dims, expected", [
+        ([40, 20, 30, 10, 30], 26000),
+        ([10, 20, 30], 6000),
+        ([10, 20], 0),
+        ([5], 0),
+        ([1, 2, 3, 4], 18),
+    ])
+    def test_min_cost(self, dims, expected):
+        assert _MatrixChain()(dims).min_cost() == expected

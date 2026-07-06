@@ -107,20 +107,91 @@ The **exchange argument** proves it: swapping any fraction of a lower-ratio item
 
 ---
 
-## Classic DP Problems Roadmap
+### 🔤 Longest Common Subsequence (LCS) — `longest_common_subsequence.py`
 
-The following problems extend naturally from the Knapsack foundation:
+Length (and actual reconstruction) of the longest subsequence common to two strings, characters not required to be contiguous.
 
-| Problem | Technique | Difficulty |
-|:---|:---|:---|
-| 0/1 Knapsack | 2D DP Table | ⭐⭐ |
-| Fractional Knapsack | Greedy + Sort | ⭐ |
-| Longest Common Subsequence (LCS) | 2D DP Table | ⭐⭐ |
-| Longest Increasing Subsequence (LIS) | DP + Binary Search | ⭐⭐⭐ |
-| Coin Change (min coins) | 1D DP | ⭐⭐ |
-| Matrix Chain Multiplication | Interval DP | ⭐⭐⭐ |
-| Edit Distance | 2D DP Table | ⭐⭐⭐ |
-| Rod Cutting | Unbounded Knapsack DP | ⭐⭐ |
+| | |
+|:---|:---|
+| **Time** | $\mathcal{O}(N \times M)$ |
+| **Space** | $\mathcal{O}(N \times M)$ |
+
+---
+
+### 📈 Longest Increasing Subsequence (LIS) — `longest_increasing_subsequence.py`
+
+Length of the longest strictly-increasing subsequence, using the classic O(N²) tabulation (`dp[i]` = LIS ending at index `i`).
+
+| | |
+|:---|:---|
+| **Time** | $\mathcal{O}(N^2)$ |
+| **Space** | $\mathcal{O}(N)$ |
+
+---
+
+### 🪙 Coin Change — `coin_change.py`
+
+Two related questions with unlimited coin supply: minimum coins to make an amount, and number of distinct combinations that make it.
+
+| | |
+|:---|:---|
+| **Time** | $\mathcal{O}(\text{amount} \times \text{coins})$ |
+| **Space** | $\mathcal{O}(\text{amount})$ |
+
+---
+
+### ✏️ Edit Distance (Levenshtein) — `edit_distance.py`
+
+Minimum insert/delete/replace operations to transform one string into another.
+
+| | |
+|:---|:---|
+| **Time** | $\mathcal{O}(N \times M)$ |
+| **Space** | $\mathcal{O}(N \times M)$ |
+
+---
+
+### 🏠 House Robber — `house_robber.py`
+
+Maximum sum obtainable without picking two adjacent elements — the O(1)-space rolling variant of a 1D DP.
+
+| | |
+|:---|:---|
+| **Time** | $\mathcal{O}(N)$ |
+| **Space** | $\mathcal{O}(1)$ |
+
+---
+
+### 🎯 Subset Sum — `subset_sum.py`
+
+Whether any subset of a set of numbers sums to exactly a target — the reachability (boolean) variant of 0/1 knapsack.
+
+| | |
+|:---|:---|
+| **Time** | $\mathcal{O}(N \times \text{target})$ |
+| **Space** | $\mathcal{O}(N \times \text{target})$ |
+
+---
+
+### 🔁 Longest Palindromic Subsequence — `longest_palindromic_subsequence.py`
+
+Length of the longest subsequence that reads the same forwards and backwards — interval DP over substring ranges.
+
+| | |
+|:---|:---|
+| **Time** | $\mathcal{O}(N^2)$ |
+| **Space** | $\mathcal{O}(N^2)$ |
+
+---
+
+### 🔗 Matrix Chain Multiplication — `matrix_chain_multiplication.py`
+
+Minimum scalar multiplications to multiply a chain of matrices, by finding the optimal parenthesisation — interval DP trying every split point.
+
+| | |
+|:---|:---|
+| **Time** | $\mathcal{O}(N^3)$ |
+| **Space** | $\mathcal{O}(N^2)$ |
 
 ---
 
@@ -134,6 +205,30 @@ python ./dsa/dp/knapsack_01.py
 # Fractional Knapsack
 python ./dsa/dp/knapsack_fractional.py
 # Enter: number of items, weights, values, capacity
+
+# Longest Common Subsequence
+python ./dsa/dp/longest_common_subsequence.py
+
+# Longest Increasing Subsequence
+python ./dsa/dp/longest_increasing_subsequence.py
+
+# Coin Change
+python ./dsa/dp/coin_change.py
+
+# Edit Distance
+python ./dsa/dp/edit_distance.py
+
+# House Robber
+python ./dsa/dp/house_robber.py
+
+# Subset Sum
+python ./dsa/dp/subset_sum.py
+
+# Longest Palindromic Subsequence
+python ./dsa/dp/longest_palindromic_subsequence.py
+
+# Matrix Chain Multiplication
+python ./dsa/dp/matrix_chain_multiplication.py
 ```
 
 ### Example (0/1 Knapsack)
