@@ -45,6 +45,12 @@ pratice/
 │       ├── surface/
 │       ├── surfacearea/
 │       └── volume/
+├── mathmatics/
+│   └── matrices/             # 🔢 Matrix operations
+│                              #   addition, subtraction, multiplication,
+│                              #   scalar_multiplication, transpose, determinant,
+│                              #   identity, trace, is_symmetric, rotate90,
+│                              #   rank, inverse, power
 └── docs/                     # 📖 Detailed docs per topic
 ```
 
@@ -63,6 +69,7 @@ pratice/
 | 🏔️ DSA — Heaps | [docs/dsa-heaps.md](./docs/dsa-heaps.md) | Max-Heap: insert, extract_max, get_max |
 | 💡 DSA — Dynamic Programming | [docs/dsa-dp.md](./docs/dsa-dp.md) | 0/1 Knapsack (DP), Fractional Knapsack (Greedy) |
 | 🧱 OOP — Geometry | [docs/oops-geometry.md](./docs/oops-geometry.md) | Areas, perimeters, surface areas, volumes |
+| 🔢 Mathematics — Matrices | [docs/mathmatics-matrices.md](./docs/mathmatics-matrices.md) | Addition → power: all 13 core matrix operations |
 
 ---
 
@@ -95,6 +102,11 @@ python ./dsa/dp/knapsack_01.py
 python ./dsa/sorting/mergesort.py
 python ./dsa/graphs/bfs.py
 python ./oops/geometry/volume/cylinder.py
+
+# Matrices
+python ./mathmatics/matrices/determinant.py
+python ./mathmatics/matrices/inverse.py
+python ./mathmatics/matrices/rank.py
 ```
 
 > See the relevant doc in [`docs/`](./docs/) for full complexity analysis, formulas, and example inputs.
@@ -114,3 +126,4 @@ python ./oops/geometry/volume/cylinder.py
 | **Star Patterns** | 11 patterns across levels 1–3 | Loop bounds, space offsets, symmetry |
 | **Number Patterns** | 10 patterns across levels 1–3 | Nested loops, binomial coefficients, Floyd filling |
 | **Loops** | 12 constructs across levels 1–3 | `for`/`while`/nesting, `break`/`continue`/`for-else`/`while-else`/do-while, `enumerate`/`zip`/comprehensions |
+| **Matrices** | 13 operations | Arithmetic, transpose, determinant, inverse, rank, power |
