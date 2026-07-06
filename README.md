@@ -49,7 +49,17 @@ pratice/
 │   │                         #   two_sum, group_anagrams,
 │   │                         #   longest_consecutive_sequence,
 │   │                         #   first_unique_character, subarray_sum_equals_k
-│   └── dp/                   # 💡 Dynamic Programming
+│   ├── dp/                    # 💡 Dynamic Programming
+│   │                          #   knapsack_01, knapsack_fractional, LCS, LIS,
+│   │                          #   coin_change, edit_distance, house_robber,
+│   │                          #   subset_sum, longest_palindromic_subsequence,
+│   │                          #   matrix_chain_multiplication
+│   └── Arrays/                # 📦 Arrays — 11 files, ~144 functions
+│                              #   basics, searching, sorting, two-pointer/
+│                              #   sliding-window, prefix-sum/diff-array,
+│                              #   rotation, classic problems, segment/
+│                              #   Fenwick/sparse trees, 2D matrix,
+│                              #   special arrays, and more
 ├── oops/
 │   └── geometry/             # 🧱 OOP geometry classes
 │       ├── areas/
@@ -80,7 +90,8 @@ pratice/
 | 🌐 DSA — Graphs | [docs/dsa-graphs.md](./docs/dsa-graphs.md) | BFS, DFS, Kruskal's, Prim's, Dijkstra, Bellman-Ford, Topological Sort, Floyd-Warshall, Cycle Detection, Connected Components |
 | 🏔️ DSA — Heaps | [docs/dsa-heaps.md](./docs/dsa-heaps.md) | MaxHeap, MinHeap, Kth Largest Element |
 | 🔑 DSA — Hashing | [docs/dsa-hashing.md](./docs/dsa-hashing.md) | Isomorphic Strings, Two Sum, Group Anagrams, Longest Consecutive Sequence, and more |
-| 💡 DSA — Dynamic Programming | [docs/dsa-dp.md](./docs/dsa-dp.md) | 0/1 Knapsack (DP), Fractional Knapsack (Greedy) |
+| 💡 DSA — Dynamic Programming | [docs/dsa-dp.md](./docs/dsa-dp.md) | Knapsack (0/1 & Fractional), LCS, LIS, Coin Change, Edit Distance, House Robber, Subset Sum, and more |
+| 📦 DSA — Arrays | [docs/dsa-arrays.md](./docs/dsa-arrays.md) | 11 files, ~144 functions — see [dsa/Arrays/README.md](./dsa/Arrays/README.md) for the full topic map |
 | 🧱 OOP — Geometry | [docs/oops-geometry.md](./docs/oops-geometry.md) | Areas, perimeters, surface areas, volumes |
 | 🔢 Mathematics — Matrices | [docs/mathmatics-matrices.md](./docs/mathmatics-matrices.md) | Addition → power: all 13 core matrix operations |
 
@@ -116,6 +127,11 @@ python ./dsa/sorting/mergesort.py
 python ./dsa/graphs/bfs.py
 python ./oops/geometry/volume/cylinder.py
 
+# Dynamic Programming
+python ./dsa/dp/longest_common_subsequence.py
+python ./dsa/dp/coin_change.py
+python ./dsa/dp/edit_distance.py
+
 # Sorting — non-comparison & heap-based
 python ./dsa/sorting/heapsort.py
 python ./dsa/sorting/countingsort.py
@@ -139,6 +155,11 @@ python ./dsa/hashing/isomorphic_strings.py
 python ./mathmatics/matrices/determinant.py
 python ./mathmatics/matrices/inverse.py
 python ./mathmatics/matrices/rank.py
+
+# Arrays
+python ./dsa/Arrays/02_searching.py
+python ./dsa/Arrays/04_two_pointer_sliding_window.py
+python ./dsa/Arrays/08_advanced_techniques.py
 ```
 
 > See the relevant doc in [`docs/`](./docs/) for full complexity analysis, formulas, and example inputs.
@@ -153,7 +174,8 @@ python ./mathmatics/matrices/rank.py
 | **Graphs** | BFS, DFS, Kruskal's, Prim's, Dijkstra, Bellman-Ford, Topological Sort, Floyd-Warshall, Cycle Detection, Connected Components | Traversal, MST, shortest paths, ordering |
 | **Heaps** | MaxHeap, MinHeap, Kth Largest Element | Priority queue, $\mathcal{O}(\log N)$ ops |
 | **Hashing** | Isomorphic Strings, Char Frequency Deficit, Two Sum, Group Anagrams, Longest Consecutive Sequence, First Unique Character, Subarray Sum Equals K | Hashmap / frequency-array lookups, $\mathcal{O}(1)$ average |
-| **Dynamic Programming** | 0/1 Knapsack, Fractional Knapsack | Overlapping subproblems, optimal substructure |
+| **Dynamic Programming** | 0/1 & Fractional Knapsack, LCS, LIS, Coin Change, Edit Distance, House Robber, Subset Sum, LPS, Matrix Chain Mult. | Overlapping subproblems, optimal substructure |
+| **Arrays** | ~144 functions across 11 files | Searching, sorting, two-pointer, sliding window, prefix sum, segment/Fenwick/sparse trees, 2D matrix, and more |
 | **OOP Geometry** | 20+ shape classes | Encapsulation, formulas as methods |
 | **Logic (DSA)** | 13 problems across levels 1–3 | Digit extraction, series, number theory |
 | **Star Patterns** | 11 patterns across levels 1–3 | Loop bounds, space offsets, symmetry |
