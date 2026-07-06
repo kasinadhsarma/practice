@@ -2,6 +2,8 @@
 
 A structured, modular Python portfolio covering **Basic Calculations**, **Data Structures & Algorithms (DSA)**, and **Object-Oriented Programming (OOP)**. Each topic has its own dedicated documentation in the [`docs/`](./docs/) folder.
 
+> 🗺️ **New here?** See [ROADMAP.md](./ROADMAP.md) for a suggested learning order through every chapter, with checkpoints along the way.
+
 ---
 
 ## 📂 Repository Structure
