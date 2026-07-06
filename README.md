@@ -31,7 +31,7 @@ pratice/
 │   │   └── loops/            # 🔁 All Python loop constructs
 │   │       ├── level1/       #   for_loop, while_loop, nested_loop
 │   │       ├── level2/       #   break_statement, continue_statement,
-│   │       │                 #   for_else, do_while_loop
+│   │       │                 #   for_else, while_else, do_while_loop
 │   │       └── level3/       #   enumerate_loop, zip_loop,
 │   │                         #   comprehension_loop, range_step_loop
 │   ├── sorting/              # 📊 Sorting algorithms
@@ -113,4 +113,4 @@ python ./oops/geometry/volume/cylinder.py
 | **Logic (DSA)** | 13 problems across levels 1–3 | Digit extraction, series, number theory |
 | **Star Patterns** | 11 patterns across levels 1–3 | Loop bounds, space offsets, symmetry |
 | **Number Patterns** | 10 patterns across levels 1–3 | Nested loops, binomial coefficients, Floyd filling |
-| **Loops** | 11 constructs across levels 1–3 | `for`/`while`/nesting, `break`/`continue`/`for-else`/do-while, `enumerate`/`zip`/comprehensions |
+| **Loops** | 12 constructs across levels 1–3 | `for`/`while`/nesting, `break`/`continue`/`for-else`/`while-else`/do-while, `enumerate`/`zip`/comprehensions |

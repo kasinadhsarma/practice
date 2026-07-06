@@ -34,6 +34,9 @@ def _ContinueDemo():
 def _ForElseDemo():
     return load_module('dsa/basics/loops/level2/for_else.py', ['7'], alias='dsa_forelse').ForElseDemo
 
+def _WhileElseDemo():
+    return load_module('dsa/basics/loops/level2/while_else.py', ['7', '10'], alias='dsa_whileelse').WhileElseDemo
+
 def _DoWhileEmulator():
     return load_module('dsa/basics/loops/level2/do_while_loop.py', ['1 2 -3 4'], alias='dsa_dowhile').DoWhileEmulator
 
@@ -128,6 +131,19 @@ class TestForElseDemo:
     ])
     def test_is_prime(self, n, expected):
         assert _ForElseDemo()(n).is_prime() == expected
+
+
+class TestWhileElseDemo:
+
+    @pytest.mark.parametrize("n, limit, expected", [
+        (12, 10, True),   # 2 divides 12, found before limit
+        (7, 7, False),    # prime, no factor found in [2,7)
+        (17, 17, False),  # prime
+        (15, 4, True),    # 3 divides 15, found at i=3 (< limit 4)
+        (17, 3, False),   # limit too small to find any factor
+    ])
+    def test_has_factor_below(self, n, limit, expected):
+        assert _WhileElseDemo()(n).has_factor_below(limit) == expected
 
 
 class TestDoWhileEmulator:

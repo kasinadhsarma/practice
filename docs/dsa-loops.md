@@ -38,6 +38,7 @@ Covers early exit, skipping iterations, the `for...else` construct, and emulatin
 | `break_statement.py` | `BreakDemo` | Finds the first divisor of n, then stops | `break` |
 | `continue_statement.py` | `ContinueDemo` | Sums only even numbers, skipping odds | `continue` |
 | `for_else.py` | `ForElseDemo` | Prime check — `else` fires only if no `break` occurred | `for...else` |
+| `while_else.py` | `WhileElseDemo` | Factor search — `else` fires only if the `while` condition ends the loop naturally | `while...else` |
 | `do_while_loop.py` | `DoWhileEmulator` | Runs the body at least once before checking the stop condition | `while True:` + `break` |
 
 ---
@@ -82,6 +83,7 @@ python ./dsa/basics/loops/level1/nested_loop.py
 python ./dsa/basics/loops/level2/break_statement.py
 python ./dsa/basics/loops/level2/continue_statement.py
 python ./dsa/basics/loops/level2/for_else.py
+python ./dsa/basics/loops/level2/while_else.py
 python ./dsa/basics/loops/level2/do_while_loop.py
 
 # Level 3
