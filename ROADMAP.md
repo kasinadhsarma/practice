@@ -133,6 +133,28 @@ Check off each stage as you go. Skip a stage only if you can already solve its "
 
 ---
 
+## Stage 9 — SQL (optional, parallel track)
+
+**Goal:** a completely different mental model from everything above — SQL is *declarative* (you describe WHAT result you want; the engine decides HOW to get it), whereas every DSA chapter so far is *imperative* (you specify the exact steps). Like Stage 8, this doesn't block or get blocked by anything else here — only Stage 0/2 (variables, classes) are assumed. Pick it up any time.
+
+| Order | Topic | Path | Covers |
+| :---: | :--- | :--- | :--- |
+| 1 | DDL | [`sql/ddl/`](./sql/ddl/) | `CREATE TABLE`, constraints, `ALTER TABLE`, `DROP TABLE` |
+| 2 | DML | [`sql/dml/`](./sql/dml/) | `INSERT`, `UPDATE`, `DELETE` |
+| 3 | Basic queries | [`sql/queries/select_where_orderby.py`](./sql/queries/select_where_orderby.py) | `SELECT`, `WHERE`, `ORDER BY`, `LIMIT`, `DISTINCT`, `LIKE`, `BETWEEN`, `IN` |
+| 4 | Aggregation | [`sql/queries/aggregate_group_having.py`](./sql/queries/aggregate_group_having.py) | `COUNT`/`SUM`/`AVG`/`MIN`/`MAX`, `GROUP BY`, `HAVING` |
+| 5 | Joins | [`sql/joins/`](./sql/joins/) | `INNER`/`LEFT`/`RIGHT`/`FULL OUTER`/`CROSS`/self joins |
+| 6 | Subqueries | [`sql/subqueries/`](./sql/subqueries/) | Scalar, `IN`, correlated, `EXISTS`, subquery-in-`FROM` |
+| 7 | Set operations | [`sql/set_operations/`](./sql/set_operations/) | `UNION`, `UNION ALL`, `INTERSECT`, `EXCEPT` |
+| 8 | Window functions | [`sql/window_functions/`](./sql/window_functions/) | `ROW_NUMBER`, `RANK`, `DENSE_RANK`, `LAG`/`LEAD`, running totals |
+| 9 | Views, indexes, transactions | [`sql/views_and_indexes/`](./sql/views_and_indexes/), [`sql/transactions/`](./sql/transactions/) | `CREATE VIEW`/`INDEX`, `BEGIN`/`COMMIT`/`ROLLBACK` |
+
+Full breakdown in [docs/sql.md](./docs/sql.md).
+
+✅ **You should be able to:** write a query with a `JOIN`, a `GROUP BY`/`HAVING`, and a window function in the same statement — e.g. "rank each department's employees by salary, only for departments with more than one employee."
+
+---
+
 ## Quick Reference — Full Order
 
 ```
@@ -145,6 +167,9 @@ Check off each stage as you go. Skip a stage only if you can already solve its "
 6. Graphs
 7. Dynamic Programming
 8. Matrices → Linear Algebra   (parallel track, any time after stage 2)
+9. SQL: DDL → DML → queries → aggregation → joins → subqueries →
+   set operations → window functions → views/indexes → transactions
+   (parallel track, any time after stage 2)
 ```
 
 If you only have time for one thing: **do Arrays properly (Stage 3)**. It's the biggest chapter for a reason — most interview prep and most later chapters (heaps, graphs, DP) assume its patterns are second nature.
