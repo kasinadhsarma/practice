@@ -30,12 +30,17 @@ pratice/
 │   │   │   ├── level2/       #   pyramid, inverted_pyramid,
 │   │   │   │                 #   hollow_square, hollow_triangle
 │   │   │   └── level3/       #   diamond, butterfly, hourglass
-│   │   └── loops/            # 🔁 All Python loop constructs
-│   │       ├── level1/       #   for_loop, while_loop, nested_loop
-│   │       ├── level2/       #   break_statement, continue_statement,
-│   │       │                 #   for_else, while_else, do_while_loop
-│   │       └── level3/       #   enumerate_loop, zip_loop,
-│   │                         #   comprehension_loop, range_step_loop
+│   │   ├── loops/            # 🔁 All Python loop constructs
+│   │   │   ├── level1/       #   for_loop, while_loop, nested_loop
+│   │   │   ├── level2/       #   break_statement, continue_statement,
+│   │   │   │                 #   for_else, while_else, do_while_loop
+│   │   │   └── level3/       #   enumerate_loop, zip_loop,
+│   │   │                     #   comprehension_loop, range_step_loop
+│   │   └── recursion/        # 🔄 Recursion — basics to backtracking
+│   │       ├── level1/       #   factorial_recursive, sum_of_n, power_recursive
+│   │       ├── level2/       #   fibonacci_recursive, tower_of_hanoi,
+│   │       │                 #   tail_recursion, mutual_recursion
+│   │       └── level3/       #   permutations, subsets, n_queens, grid_paths
 │   ├── sorting/              # 📊 Sorting algorithms
 │   │                         #   bubble, insertion, selection, merge, quick,
 │   │                         #   heap, counting, radix, shell
@@ -96,6 +101,7 @@ pratice/
 | 🧠 DSA — Logic Levels | [docs/dsa-logic.md](./docs/dsa-logic.md) | Level 1–3: even/odd → Armstrong → GCD, Fibonacci |
 | 🔲 DSA — Patterns | [docs/dsa-patterns.md](./docs/dsa-patterns.md) | Stars & numbers: level 1–3 with class-based patterns |
 | 🔁 DSA — Loops | [docs/dsa-loops.md](./docs/dsa-loops.md) | Level 1–3: for/while/nested → break/continue/for-else/do-while → enumerate/zip/comprehensions |
+| 🔄 DSA — Recursion | [docs/dsa-recursion.md](./docs/dsa-recursion.md) | Level 1–3: factorial/power → Fibonacci/Hanoi/tail-recursion/mutual → permutations/subsets/N-Queens/grid-paths |
 | 📊 DSA — Sorting | [docs/dsa-sorting.md](./docs/dsa-sorting.md) | Bubble, Insertion, Selection, Merge, Quick, Heap, Counting, Radix, Shell sort |
 | 🌐 DSA — Graphs | [docs/dsa-graphs.md](./docs/dsa-graphs.md) | BFS, DFS, Kruskal's, Prim's, Dijkstra, Bellman-Ford, Topological Sort, Floyd-Warshall, Cycle Detection, Connected Components |
 | 🏔️ DSA — Heaps | [docs/dsa-heaps.md](./docs/dsa-heaps.md) | MaxHeap, MinHeap, Kth Largest Element |
@@ -131,6 +137,11 @@ python ./dsa/basics/numbers/level3/pascal_triangle.py
 python ./dsa/basics/loops/level1/for_loop.py
 python ./dsa/basics/loops/level2/break_statement.py
 python ./dsa/basics/loops/level3/enumerate_loop.py
+
+# Recursion
+python ./dsa/basics/recursion/level1/factorial_recursive.py
+python ./dsa/basics/recursion/level2/tower_of_hanoi.py
+python ./dsa/basics/recursion/level3/n_queens.py
 
 # Algorithms
 python ./dsa/dp/knapsack_01.py
@@ -192,5 +203,6 @@ python ./dsa/Arrays/08_advanced_techniques.py
 | **Star Patterns** | 11 patterns across levels 1–3 | Loop bounds, space offsets, symmetry |
 | **Number Patterns** | 10 patterns across levels 1–3 | Nested loops, binomial coefficients, Floyd filling |
 | **Loops** | 12 constructs across levels 1–3 | `for`/`while`/nesting, `break`/`continue`/`for-else`/`while-else`/do-while, `enumerate`/`zip`/comprehensions |
+| **Recursion** | 11 patterns across levels 1–3 | Basic self-reduction, recursion trees, tail/mutual recursion, backtracking |
 | **Matrices** | 13 operations | Arithmetic, transpose, determinant, inverse, rank, power |
 | **Linear Algebra** | 12 operations | Vector arithmetic/geometry, linear independence, Gaussian elimination, Cramer's Rule |
