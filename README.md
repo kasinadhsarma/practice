@@ -68,11 +68,19 @@ pratice/
 │       ├── surfacearea/
 │       └── volume/
 ├── mathmatics/
-│   └── matrices/             # 🔢 Matrix operations
-│                              #   addition, subtraction, multiplication,
-│                              #   scalar_multiplication, transpose, determinant,
-│                              #   identity, trace, is_symmetric, rotate90,
-│                              #   rank, inverse, power
+│   ├── matrices/             # 🔢 Matrix operations
+│   │                         #   addition, subtraction, multiplication,
+│   │                         #   scalar_multiplication, transpose, determinant,
+│   │                         #   identity, trace, is_symmetric, rotate90,
+│   │                         #   rank, inverse, power
+│   └── algebra/
+│       └── linearalgebra/    # 📐 Vector algebra & linear systems
+│                             #   vector_addition, vector_subtraction,
+│                             #   scalar_vector_multiplication, dot_product,
+│                             #   cross_product, vector_magnitude,
+│                             #   vector_normalization, angle_between_vectors,
+│                             #   vector_projection, linear_independence,
+│                             #   solve_linear_system, cramers_rule
 └── docs/                     # 📖 Detailed docs per topic
 ```
 
@@ -94,6 +102,7 @@ pratice/
 | 📦 DSA — Arrays | [docs/dsa-arrays.md](./docs/dsa-arrays.md) | 11 files, ~144 functions — see [dsa/Arrays/README.md](./dsa/Arrays/README.md) for the full topic map |
 | 🧱 OOP — Geometry | [docs/oops-geometry.md](./docs/oops-geometry.md) | Areas, perimeters, surface areas, volumes |
 | 🔢 Mathematics — Matrices | [docs/mathmatics-matrices.md](./docs/mathmatics-matrices.md) | Addition → power: all 13 core matrix operations |
+| 📐 Mathematics — Linear Algebra | [docs/mathmatics-linearalgebra.md](./docs/mathmatics-linearalgebra.md) | Vector arithmetic/geometry + Gaussian elimination & Cramer's Rule for solving systems |
 
 ---
 
@@ -182,3 +191,4 @@ python ./dsa/Arrays/08_advanced_techniques.py
 | **Number Patterns** | 10 patterns across levels 1–3 | Nested loops, binomial coefficients, Floyd filling |
 | **Loops** | 12 constructs across levels 1–3 | `for`/`while`/nesting, `break`/`continue`/`for-else`/`while-else`/do-while, `enumerate`/`zip`/comprehensions |
 | **Matrices** | 13 operations | Arithmetic, transpose, determinant, inverse, rank, power |
+| **Linear Algebra** | 12 operations | Vector arithmetic/geometry, linear independence, Gaussian elimination, Cramer's Rule |

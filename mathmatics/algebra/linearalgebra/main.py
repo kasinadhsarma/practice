@@ -1,1 +1,0 @@
-print ("linear algebra")
