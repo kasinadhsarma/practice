@@ -35,8 +35,20 @@ pratice/
 │   │       └── level3/       #   enumerate_loop, zip_loop,
 │   │                         #   comprehension_loop, range_step_loop
 │   ├── sorting/              # 📊 Sorting algorithms
-│   ├── graphs/               # 🌐 Graph traversal & MST
+│   │                         #   bubble, insertion, selection, merge, quick,
+│   │                         #   heap, counting, radix, shell
+│   ├── graphs/               # 🌐 Graph traversal, MST, shortest paths
+│   │                         #   BFS, DFS, Kruskal's, Prim's, Dijkstra,
+│   │                         #   Bellman-Ford, topological sort,
+│   │                         #   Floyd-Warshall, cycle detection,
+│   │                         #   connected components
 │   ├── heaps/                # 🏔️  Heap data structure
+│   │                         #   MaxHeap, MinHeap, kth_largest_element
+│   ├── hashing/               # 🔑 Hashmap-based algorithms
+│   │                         #   isomorphic_strings, char_frequency_deficit,
+│   │                         #   two_sum, group_anagrams,
+│   │                         #   longest_consecutive_sequence,
+│   │                         #   first_unique_character, subarray_sum_equals_k
 │   └── dp/                   # 💡 Dynamic Programming
 ├── oops/
 │   └── geometry/             # 🧱 OOP geometry classes
@@ -64,9 +76,10 @@ pratice/
 | 🧠 DSA — Logic Levels | [docs/dsa-logic.md](./docs/dsa-logic.md) | Level 1–3: even/odd → Armstrong → GCD, Fibonacci |
 | 🔲 DSA — Patterns | [docs/dsa-patterns.md](./docs/dsa-patterns.md) | Stars & numbers: level 1–3 with class-based patterns |
 | 🔁 DSA — Loops | [docs/dsa-loops.md](./docs/dsa-loops.md) | Level 1–3: for/while/nested → break/continue/for-else/do-while → enumerate/zip/comprehensions |
-| 📊 DSA — Sorting | [docs/dsa-sorting.md](./docs/dsa-sorting.md) | Bubble, Insertion, Selection, Merge, Quick sort |
-| 🌐 DSA — Graphs | [docs/dsa-graphs.md](./docs/dsa-graphs.md) | BFS, DFS, Kruskal's, Prim's |
-| 🏔️ DSA — Heaps | [docs/dsa-heaps.md](./docs/dsa-heaps.md) | Max-Heap: insert, extract_max, get_max |
+| 📊 DSA — Sorting | [docs/dsa-sorting.md](./docs/dsa-sorting.md) | Bubble, Insertion, Selection, Merge, Quick, Heap, Counting, Radix, Shell sort |
+| 🌐 DSA — Graphs | [docs/dsa-graphs.md](./docs/dsa-graphs.md) | BFS, DFS, Kruskal's, Prim's, Dijkstra, Bellman-Ford, Topological Sort, Floyd-Warshall, Cycle Detection, Connected Components |
+| 🏔️ DSA — Heaps | [docs/dsa-heaps.md](./docs/dsa-heaps.md) | MaxHeap, MinHeap, Kth Largest Element |
+| 🔑 DSA — Hashing | [docs/dsa-hashing.md](./docs/dsa-hashing.md) | Isomorphic Strings, Two Sum, Group Anagrams, Longest Consecutive Sequence, and more |
 | 💡 DSA — Dynamic Programming | [docs/dsa-dp.md](./docs/dsa-dp.md) | 0/1 Knapsack (DP), Fractional Knapsack (Greedy) |
 | 🧱 OOP — Geometry | [docs/oops-geometry.md](./docs/oops-geometry.md) | Areas, perimeters, surface areas, volumes |
 | 🔢 Mathematics — Matrices | [docs/mathmatics-matrices.md](./docs/mathmatics-matrices.md) | Addition → power: all 13 core matrix operations |
@@ -103,6 +116,25 @@ python ./dsa/sorting/mergesort.py
 python ./dsa/graphs/bfs.py
 python ./oops/geometry/volume/cylinder.py
 
+# Sorting — non-comparison & heap-based
+python ./dsa/sorting/heapsort.py
+python ./dsa/sorting/countingsort.py
+python ./dsa/sorting/radixsort.py
+
+# Graphs — shortest paths & ordering
+python ./dsa/graphs/dijkstra.py
+python ./dsa/graphs/topological_sort.py
+python ./dsa/graphs/connected_components.py
+
+# Heaps
+python ./dsa/heaps/minheap.py
+python ./dsa/heaps/kth_largest_element.py
+
+# Hashing
+python ./dsa/hashing/two_sum.py
+python ./dsa/hashing/group_anagrams.py
+python ./dsa/hashing/isomorphic_strings.py
+
 # Matrices
 python ./mathmatics/matrices/determinant.py
 python ./mathmatics/matrices/inverse.py
@@ -117,9 +149,10 @@ python ./mathmatics/matrices/rank.py
 
 | Area | Algorithms / Classes | Key Concept |
 | :--- | :--- | :--- |
-| **Sorting** | Bubble, Insertion, Selection, Merge, Quick | Comparison-based sorting |
-| **Graphs** | BFS, DFS, Kruskal's, Prim's | Traversal & MST |
-| **Heaps** | MaxHeap | Priority queue, $\mathcal{O}(\log N)$ ops |
+| **Sorting** | Bubble, Insertion, Selection, Merge, Quick, Heap, Counting, Radix, Shell | Comparison & non-comparison sorting |
+| **Graphs** | BFS, DFS, Kruskal's, Prim's, Dijkstra, Bellman-Ford, Topological Sort, Floyd-Warshall, Cycle Detection, Connected Components | Traversal, MST, shortest paths, ordering |
+| **Heaps** | MaxHeap, MinHeap, Kth Largest Element | Priority queue, $\mathcal{O}(\log N)$ ops |
+| **Hashing** | Isomorphic Strings, Char Frequency Deficit, Two Sum, Group Anagrams, Longest Consecutive Sequence, First Unique Character, Subarray Sum Equals K | Hashmap / frequency-array lookups, $\mathcal{O}(1)$ average |
 | **Dynamic Programming** | 0/1 Knapsack, Fractional Knapsack | Overlapping subproblems, optimal substructure |
 | **OOP Geometry** | 20+ shape classes | Encapsulation, formulas as methods |
 | **Logic (DSA)** | 13 problems across levels 1–3 | Digit extraction, series, number theory |
