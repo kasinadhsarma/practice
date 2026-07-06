@@ -88,6 +88,16 @@ pratice/
 │                             #   vector_normalization, angle_between_vectors,
 │                             #   vector_projection, linear_independence,
 │                             #   solve_linear_system, cramers_rule
+├── sql/                      # 🗄️  SQL via sqlite3 (in-memory, testable)
+│   ├── ddl/                  #   create_table, alter_drop_table
+│   ├── dml/                  #   insert_update_delete
+│   ├── queries/              #   select_where_orderby, aggregate_group_having
+│   ├── joins/                #   all_joins (inner/left/right/full/cross/self)
+│   ├── subqueries/           #   subqueries (scalar/correlated/IN/EXISTS)
+│   ├── set_operations/       #   set_operations (union/intersect/except)
+│   ├── window_functions/     #   window_functions (row_number/rank/lag/lead)
+│   ├── views_and_indexes/    #   views_and_indexes
+│   └── transactions/         #   transactions (commit/rollback)
 └── docs/                     # 📖 Detailed docs per topic
 ```
 
@@ -111,6 +121,7 @@ pratice/
 | 🧱 OOP — Geometry | [docs/oops-geometry.md](./docs/oops-geometry.md) | Areas, perimeters, surface areas, volumes |
 | 🔢 Mathematics — Matrices | [docs/mathmatics-matrices.md](./docs/mathmatics-matrices.md) | Addition → power: all 13 core matrix operations |
 | 📐 Mathematics — Linear Algebra | [docs/mathmatics-linearalgebra.md](./docs/mathmatics-linearalgebra.md) | Vector arithmetic/geometry + Gaussian elimination & Cramer's Rule for solving systems |
+| 🗄️ SQL | [docs/sql.md](./docs/sql.md) | DDL, DML, joins, subqueries, set operations, window functions, views/indexes, transactions — via in-memory sqlite3 |
 
 ---
 
@@ -182,6 +193,11 @@ python ./mathmatics/matrices/rank.py
 python ./dsa/Arrays/02_searching.py
 python ./dsa/Arrays/04_two_pointer_sliding_window.py
 python ./dsa/Arrays/08_advanced_techniques.py
+
+# SQL
+python ./sql/queries/select_where_orderby.py
+python ./sql/joins/all_joins.py
+python ./sql/window_functions/window_functions.py
 ```
 
 > See the relevant doc in [`docs/`](./docs/) for full complexity analysis, formulas, and example inputs.
@@ -206,3 +222,4 @@ python ./dsa/Arrays/08_advanced_techniques.py
 | **Recursion** | 11 patterns across levels 1–3 | Basic self-reduction, recursion trees, tail/mutual recursion, backtracking |
 | **Matrices** | 13 operations | Arithmetic, transpose, determinant, inverse, rank, power |
 | **Linear Algebra** | 12 operations | Vector arithmetic/geometry, linear independence, Gaussian elimination, Cramer's Rule |
+| **SQL** | 11 classes across 9 topics | DDL/DML, joins, subqueries, set operations, window functions, views/indexes, transactions |
