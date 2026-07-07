@@ -1,6 +1,6 @@
 # 🧱 OOP — Geometry
 
-**Location:** [`oops/geometry/`](../oops/geometry/)
+**Location:** [`mathmatics/geometry/`](../mathmatics/geometry/)
 
 A comprehensive geometric toolkit built with **Object-Oriented Programming** — each shape is a **class** with encapsulated attributes and methods. Covers 2D areas, 2D perimeters, 3D surface areas, 3D volumes, and vector/theorem utilities.
 

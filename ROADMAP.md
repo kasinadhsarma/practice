@@ -147,15 +147,22 @@ Check off each stage as you go. Skip a stage only if you can already solve its "
 
 | Order | Topic | Path | Doc |
 | :---: | :--- | :--- | :--- |
-| 1 | Matrices | [`mathmatics/matrices/`](./mathmatics/matrices/) | [docs/mathmatics-matrices.md](./docs/mathmatics-matrices.md) |
-| 2 | Linear Algebra (vectors, solving systems) | [`mathmatics/algebra/linearalgebra/`](./mathmatics/algebra/linearalgebra/) | [docs/mathmatics-linearalgebra.md](./docs/mathmatics-linearalgebra.md) |
-| 3 | Discrete Mathematics (sets, logic, relations, graph theory) | [`mathmatics/discrete/`](./mathmatics/discrete/) | [docs/mathmatics-discrete.md](./docs/mathmatics-discrete.md) |
-| 4 | Statistics (central tendency, dispersion, correlation) | [`mathmatics/statistics/`](./mathmatics/statistics/) | [docs/mathmatics-statistics.md](./docs/mathmatics-statistics.md) |
-| 5 | Probability (rules, Bayes, distributions) | [`mathmatics/probability/`](./mathmatics/probability/) | [docs/mathmatics-probability.md](./docs/mathmatics-probability.md) |
+| 1 | Algebra (equations, polynomials) | [`mathmatics/algebra/basicalgebra/`](./mathmatics/algebra/basicalgebra/) | [docs/mathmatics-algebra.md](./docs/mathmatics-algebra.md) |
+| 2 | Geometry (areas, perimeters, surface areas, volumes) | [`mathmatics/geometry/`](./mathmatics/geometry/) | [docs/oops-geometry.md](./docs/oops-geometry.md) |
+| 3 | Coordinate Geometry (points, lines, circles as equations) | [`mathmatics/coordinate_geometry/`](./mathmatics/coordinate_geometry/) | [docs/mathmatics-coordinate-geometry.md](./docs/mathmatics-coordinate-geometry.md) |
+| 4 | Trigonometry (ratios, Law of Sines/Cosines, unit circle) | [`mathmatics/trigonometry/`](./mathmatics/trigonometry/) | [docs/mathmatics-trigonometry.md](./docs/mathmatics-trigonometry.md) |
+| 5 | Matrices | [`mathmatics/matrices/`](./mathmatics/matrices/) | [docs/mathmatics-matrices.md](./docs/mathmatics-matrices.md) |
+| 6 | Linear Algebra (vectors, solving systems) | [`mathmatics/algebra/linearalgebra/`](./mathmatics/algebra/linearalgebra/) | [docs/mathmatics-linearalgebra.md](./docs/mathmatics-linearalgebra.md) |
+| 7 | Number Theory (primes, GCD/LCM, factorization) | [`mathmatics/number_theory/`](./mathmatics/number_theory/) | [docs/mathmatics-number-theory.md](./docs/mathmatics-number-theory.md) |
+| 8 | Discrete Mathematics (sets, logic, relations, graph theory) | [`mathmatics/discrete/`](./mathmatics/discrete/) | [docs/mathmatics-discrete.md](./docs/mathmatics-discrete.md) |
+| 9 | Sequences & Series (progressions, closed-form sums) | [`mathmatics/sequences_series/`](./mathmatics/sequences_series/) | [docs/mathmatics-sequences-series.md](./docs/mathmatics-sequences-series.md) |
+| 10 | Statistics (central tendency, dispersion, correlation) | [`mathmatics/statistics/`](./mathmatics/statistics/) | [docs/mathmatics-statistics.md](./docs/mathmatics-statistics.md) |
+| 11 | Probability (rules, Bayes, distributions) | [`mathmatics/probability/`](./mathmatics/probability/) | [docs/mathmatics-probability.md](./docs/mathmatics-probability.md) |
+| 12 | Calculus (limits, derivatives, integrals) | [`mathmatics/calculus/`](./mathmatics/calculus/) | [docs/mathmatics-calculus.md](./docs/mathmatics-calculus.md) |
 
-**Suggested internal order:** Matrices → Linear Algebra come first since Discrete Math's `graph_theory_basics` and Probability's distribution code both lean lightly on the same array/summation habits. Discrete Math before Probability specifically: `combinatorics` thinking (power set, pigeonhole) makes permutations/combinations in Probability click faster, and Probability's Bayes' theorem is easiest to trust once you're comfortable with set-based reasoning about sample spaces. Statistics can slot in before or after Probability — they reinforce each other (a distribution's mean/variance in Probability *is* the population mean/variance in Statistics) but neither blocks the other.
+**Suggested internal order:** Algebra and Geometry first — they're the two most self-contained starting points and need nothing else here. Coordinate Geometry next, since it's literally algebra applied to geometry's shapes. Trigonometry builds on Geometry's triangles. Matrices → Linear Algebra come next since Discrete Math's `graph_theory_basics` and Probability's distribution code both lean lightly on the same array/summation habits those two build up. Number Theory before Discrete Math: `gcd_lcm` is the simplest possible taste of "properties of integers" before Discrete Math's `modular_arithmetic` reuses the same idea in a more abstract setting. Discrete Math before Probability specifically: `combinatorics` thinking (power set, pigeonhole) makes permutations/combinations in Probability click faster, and Probability's Bayes' theorem is easiest to trust once you're comfortable with set-based reasoning about sample spaces. Sequences & Series slots in before Calculus since a `sum_to_infinity` geometric series is the most approachable on-ramp to the idea of a limit. Statistics can slot in before or after Probability — they reinforce each other (a distribution's mean/variance in Probability *is* the population mean/variance in Statistics) but neither blocks the other. Calculus is last: its numerical derivative/integral/limit files don't strictly require anything above, but conceptually it's the most abstract topic in this track, and its `limit_numerical` connects directly back to Sequences & Series' `sum_to_infinity`.
 
-✅ **You should be able to:** solve a 3-variable linear system by hand using Gaussian elimination and verify your code's answer against it; explain why sample variance divides by $N-1$; compute a Bayes' theorem update by hand for a simple two-hypothesis case; and determine whether a small graph has an Eulerian circuit just by inspecting vertex degrees.
+✅ **You should be able to:** solve a 3-variable linear system by hand using Gaussian elimination and verify your code's answer against it; explain why sample variance divides by $N-1$; compute a Bayes' theorem update by hand for a simple two-hypothesis case; determine whether a small graph has an Eulerian circuit just by inspecting vertex degrees; solve a quadratic equation by hand and check it against the discriminant-based code; and explain why a numerical derivative uses a *central* difference instead of a one-sided one.
 
 ---
 
@@ -193,7 +200,9 @@ Full breakdown in [docs/sql.md](./docs/sql.md).
 6. Heaps
 7. Graphs
 8. Dynamic Programming
-9. Matrices → Linear Algebra → Discrete Math → Statistics → Probability
+9. Algebra → Geometry → Coordinate Geometry → Trigonometry → Matrices →
+   Linear Algebra → Number Theory → Discrete Math → Sequences & Series →
+   Statistics → Probability → Calculus
    (parallel track, any time after stage 2)
 10. SQL: DDL → DML → queries → aggregation → joins → subqueries →
     set operations → window functions → views/indexes → transactions
