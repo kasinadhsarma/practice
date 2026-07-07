@@ -108,6 +108,10 @@ class TestBayesTheorem:
         result = _BayesTheorem()().calculate(0, 0.5, [0.5, 0.5], [0, 0])
         assert result is None
 
+    def test_mismatched_lengths_returns_none(self):
+        result = _BayesTheorem()().calculate(0.99, 0.01, [0.01, 0.99], [0.99])
+        assert result is None
+
 
 class TestPermutations:
 

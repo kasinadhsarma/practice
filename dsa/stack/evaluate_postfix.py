@@ -41,12 +41,14 @@ class EvaluatePostfix:
         stack = []
         for token in self.tokens:
             if token in self.OPS:
+                if len(stack) < 2:
+                    return None  # malformed expression — not enough operands
                 b = stack.pop()
                 a = stack.pop()
                 stack.append(self.OPS[token](a, b))
             else:
                 stack.append(float(token))
-        return stack[-1] if stack else None
+        return stack[0] if len(stack) == 1 else None
 
 
 expr = input("enter postfix expression (space-separated, e.g. '3 4 + 2 *'): ")

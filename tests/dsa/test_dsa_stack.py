@@ -118,3 +118,9 @@ class TestEvaluatePostfix:
 
     def test_single_number(self):
         assert _EvaluatePostfix()("42").evaluate() == 42.0
+
+    def test_not_enough_operands_returns_none(self):
+        assert _EvaluatePostfix()("4 +").evaluate() is None
+
+    def test_leftover_operands_returns_none(self):
+        assert _EvaluatePostfix()("3 4 5").evaluate() is None

@@ -195,6 +195,16 @@ class TestDetectCycle:
         head = mod.build_list_with_cycle([1], cycle_index=0)
         assert mod.DetectCycle.has_cycle(head) is True
 
+    def test_out_of_range_cycle_index_does_not_crash(self):
+        mod = _cycle_mod()
+        head = mod.build_list_with_cycle([1, 2, 3], cycle_index=99)
+        assert mod.DetectCycle.has_cycle(head) is False
+
+    def test_negative_cycle_index_does_not_crash(self):
+        mod = _cycle_mod()
+        head = mod.build_list_with_cycle([1, 2, 3], cycle_index=-1)
+        assert mod.DetectCycle.has_cycle(head) is False
+
 
 class TestMergeTwoSortedLists:
 
