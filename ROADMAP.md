@@ -41,9 +41,13 @@ Check off each stage as you go. Skip a stage only if you can already solve its "
 
 | Topic | Path | Doc |
 | :--- | :--- | :--- |
-| OOP Geometry (shapes as classes) | [`oops/geometry/`](./oops/geometry/) | [docs/oops-geometry.md](./docs/oops-geometry.md) |
+| OOP Fundamentals → Advanced (11 files: classes/objects, encapsulation, inheritance, polymorphism, abstraction, magic methods, class/static methods, composition, advanced (descriptors/metaclasses), design patterns, SOLID) | [`oops/`](./oops/) | [oops/README.md](./oops/README.md) |
 
-✅ **You should be able to:** write a class with an `__init__`, at least one method that computes something from `self`, and a demo that instantiates it.
+**Suggested internal order:** the files are numbered for a reason — `01_classes_objects` → `02_encapsulation` → `03_inheritance` are the essentials, and only these three are required before moving on to Stage 3. `04_polymorphism` through `11_solid_principles` go considerably deeper (magic methods, metaclasses, design patterns, SOLID) — treat those as an optional continuation, best revisited once you have more Python under your belt (a good re-entry point any time after Stage 3).
+
+> **Hands-on practice application:** [`mathmatics/geometry/`](./mathmatics/geometry/) (20+ shape classes — areas, perimeters, surface areas, volumes) is a ready-made set of small, self-contained classes to write from scratch as a Stage 2 exercise before peeking at the existing implementation. See [docs/oops-geometry.md](./docs/oops-geometry.md) and Stage 9 below.
+
+✅ **You should be able to:** write a class with an `__init__`, at least one method that computes something from `self`, a `@property` getter/setter, and a subclass that overrides a parent method — using only `01_classes_objects.py` through `03_inheritance.py` as reference.
 
 ---
 
@@ -193,7 +197,7 @@ Full breakdown in [docs/sql.md](./docs/sql.md).
 ```
 0. Basic Calculations
 1. Logic → Loops → Recursion → Patterns
-2. OOP Geometry
+2. OOP Fundamentals (oops/, files 01-03 required; 04-11 optional deep-dive)
 3. Arrays (01 → 11, in file order)
 4. Stack → Queue → Linked List
 5. Hashing

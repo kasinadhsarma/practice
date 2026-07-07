@@ -77,13 +77,13 @@ pratice/
 │                              #   rotation, classic problems, segment/
 │                              #   Fenwick/sparse trees, 2D matrix,
 │                              #   special arrays, and more
-├── oops/
-│   └── geometry/             # 🧱 OOP geometry classes
-│       ├── areas/
-│       ├── perimeter/
-│       ├── surface/
-│       ├── surfacearea/
-│       └── volume/
+├── oops/                      # 🧱 OOP fundamentals — 11 files, basics to advanced
+│                              #   01_classes_objects, 02_encapsulation,
+│                              #   03_inheritance, 04_polymorphism,
+│                              #   05_abstraction, 06_magic_methods,
+│                              #   07_class_static_methods_properties,
+│                              #   08_composition_aggregation, 09_advanced_oop,
+│                              #   10_design_patterns, 11_solid_principles
 ├── mathmatics/
 │   ├── matrices/             # 🔢 Matrix operations
 │   │                         #   addition, subtraction, multiplication,
