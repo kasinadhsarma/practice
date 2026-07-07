@@ -5,6 +5,8 @@ class bayes_theorem:
     # under every hypothesis: sum(P(E|H_i) * P(H_i))
     # time complexity O(K) for K hypotheses, space O(1)
     def calculate(self,likelihood:float,prior:float,priors:list,likelihoods:list)->float:
+        if len(priors) != len(likelihoods):
+            return None
         evidence = sum(priors[i] * likelihoods[i] for i in range(len(priors)))
         if evidence == 0:
             return None

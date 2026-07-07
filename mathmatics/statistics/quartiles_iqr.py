@@ -14,6 +14,8 @@ class quartiles_iqr:
             return None
         ordered = sorted(data)
         n = len(ordered)
+        if n == 1:
+            return {"Q1": ordered[0], "Q2": ordered[0], "Q3": ordered[0], "IQR": 0}
         mid = n // 2
         lower_half = ordered[:mid]
         upper_half = ordered[mid + 1:] if n % 2 == 1 else ordered[mid:]

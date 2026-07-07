@@ -73,7 +73,7 @@ def build_list_with_cycle(values, cycle_index=None):
     nodes = [Node(v) for v in values]
     for i in range(len(nodes) - 1):
         nodes[i].next = nodes[i + 1]
-    if cycle_index is not None and nodes:
+    if cycle_index is not None and nodes and 0 <= cycle_index < len(nodes):
         nodes[-1].next = nodes[cycle_index]
     return nodes[0] if nodes else None
 

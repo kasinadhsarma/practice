@@ -148,6 +148,10 @@ class TestQuartilesIQR:
     def test_empty_returns_none(self):
         assert _QuartilesIQR()().calculate([]) is None
 
+    def test_single_value_does_not_crash(self):
+        result = _QuartilesIQR()().calculate([7])
+        assert result == {"Q1": 7, "Q2": 7, "Q3": 7, "IQR": 0}
+
 
 class TestCovariance:
 
