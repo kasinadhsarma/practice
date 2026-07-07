@@ -60,14 +60,35 @@ Check off each stage as you go. Skip a stage only if you can already solve its "
 2. `03_sorting` → `04_two_pointer_sliding_window` — sorting first, since two-pointer techniques often assume a sorted array
 3. `05_prefix_sum_difference_array` → `06_array_rotation` — running-sum tricks, then in-place rearrangement
 4. `07_classic_problems` — the interview staples (stock problems, trapping rain water, jump game, etc.) once the toolkit above is familiar
-5. `08_advanced_techniques` — Segment Tree, Fenwick Tree, Sparse Table, monotonic stack/deque (revisit this one after Stage 5, Heaps, if it feels heavy)
+5. `08_advanced_techniques` — Segment Tree, Fenwick Tree, Sparse Table, monotonic stack/deque (revisit this one after Stage 6, Heaps, if it feels heavy)
 6. `09_2d_matrix` → `10_special_arrays` → `11_remaining_topics` — everything else, roughly in difficulty order
 
 ✅ **You should be able to:** solve two-pointer, sliding-window, and prefix-sum problems without checking the file first, and explain why binary search needs a sorted input.
 
 ---
 
-## Stage 4 — Hashing
+## Stage 4 — Linear Data Structures (Stack, Queue, Linked List)
+
+**Goal:** move past array-only thinking — recognize when restricted access (LIFO, FIFO) or pointer-chained storage is the right tool, and get comfortable manipulating pointers directly.
+
+| Order | Topic | Path | Doc |
+| :---: | :--- | :--- | :--- |
+| 1 | Stack | [`dsa/stack/`](./dsa/stack/) | [docs/dsa-stack.md](./docs/dsa-stack.md) |
+| 2 | Queue | [`dsa/queue/`](./dsa/queue/) | [docs/dsa-queue.md](./docs/dsa-queue.md) |
+| 3 | Linked List | [`dsa/linked_list/`](./dsa/linked_list/) | [docs/dsa-linked-list.md](./docs/dsa-linked-list.md) |
+
+**Suggested internal order:**
+- **Stack:** `stack_array` (the ADT) → `valid_parentheses` → `min_stack` → `evaluate_postfix`
+- **Queue:** `queue_array` (the ADT) → `circular_queue` → `queue_using_stacks` → `deque_basic`
+- **Linked List:** `singly_linked_list` → `doubly_linked_list` → `reverse_linked_list` → `detect_cycle` → `merge_two_sorted_lists`
+
+**Why this order:** stack and queue build directly on arrays (Stage 3) — they're arrays with restricted access patterns, an easy conceptual step. Linked lists come last in this stage because they require a genuine mental shift: no more index-based access, just pointers — and `reverse_linked_list`/`detect_cycle` are the classic pointer-manipulation checkpoints that show up constantly in later interview prep.
+
+✅ **You should be able to:** implement a stack and a queue from scratch (no `list.pop(0)` shortcuts), reverse a singly linked list both iteratively and recursively, and explain why Floyd's cycle detection needs no extra memory.
+
+---
+
+## Stage 5 — Hashing
 
 **Goal:** recognize when a hashmap turns an O(N²) brute force into O(N).
 
@@ -79,7 +100,7 @@ Check off each stage as you go. Skip a stage only if you can already solve its "
 
 ---
 
-## Stage 5 — Heaps
+## Stage 6 — Heaps
 
 **Goal:** understand priority queues and when "always process the smallest/largest next" beats sorting everything upfront.
 
@@ -92,7 +113,7 @@ Check off each stage as you go. Skip a stage only if you can already solve its "
 
 ---
 
-## Stage 6 — Graphs
+## Stage 7 — Graphs
 
 **Goal:** traversal, shortest paths, and spanning trees — the largest conceptual jump so far. Do this after arrays/hashing/heaps, since graph algorithms lean on all three (queues, hashmaps for visited-sets, heaps for Dijkstra/Prim's).
 
@@ -106,7 +127,7 @@ Check off each stage as you go. Skip a stage only if you can already solve its "
 
 ---
 
-## Stage 7 — Dynamic Programming
+## Stage 8 — Dynamic Programming
 
 **Goal:** the hardest conceptual topic here — save it for last among the DSA chapters. It leans directly on recursion (Stage 1) and requires genuine comfort with "define the subproblem" thinking.
 
@@ -120,22 +141,27 @@ Check off each stage as you go. Skip a stage only if you can already solve its "
 
 ---
 
-## Stage 8 — Mathematics (optional, parallel track)
+## Stage 9 — Mathematics (optional, parallel track)
 
-**Goal:** these don't block anything above — treat as an independent track you can pick up any time after Stage 2, if the domain (graphics, ML, physics) interests you.
+**Goal:** these don't block anything above — treat as an independent track you can pick up any time after Stage 2, if the domain (graphics, ML, physics, data science, algorithm analysis) interests you.
 
 | Order | Topic | Path | Doc |
 | :---: | :--- | :--- | :--- |
 | 1 | Matrices | [`mathmatics/matrices/`](./mathmatics/matrices/) | [docs/mathmatics-matrices.md](./docs/mathmatics-matrices.md) |
 | 2 | Linear Algebra (vectors, solving systems) | [`mathmatics/algebra/linearalgebra/`](./mathmatics/algebra/linearalgebra/) | [docs/mathmatics-linearalgebra.md](./docs/mathmatics-linearalgebra.md) |
+| 3 | Discrete Mathematics (sets, logic, relations, graph theory) | [`mathmatics/discrete/`](./mathmatics/discrete/) | [docs/mathmatics-discrete.md](./docs/mathmatics-discrete.md) |
+| 4 | Statistics (central tendency, dispersion, correlation) | [`mathmatics/statistics/`](./mathmatics/statistics/) | [docs/mathmatics-statistics.md](./docs/mathmatics-statistics.md) |
+| 5 | Probability (rules, Bayes, distributions) | [`mathmatics/probability/`](./mathmatics/probability/) | [docs/mathmatics-probability.md](./docs/mathmatics-probability.md) |
 
-✅ **You should be able to:** solve a 3-variable linear system by hand using Gaussian elimination, then verify your code's answer against it.
+**Suggested internal order:** Matrices → Linear Algebra come first since Discrete Math's `graph_theory_basics` and Probability's distribution code both lean lightly on the same array/summation habits. Discrete Math before Probability specifically: `combinatorics` thinking (power set, pigeonhole) makes permutations/combinations in Probability click faster, and Probability's Bayes' theorem is easiest to trust once you're comfortable with set-based reasoning about sample spaces. Statistics can slot in before or after Probability — they reinforce each other (a distribution's mean/variance in Probability *is* the population mean/variance in Statistics) but neither blocks the other.
+
+✅ **You should be able to:** solve a 3-variable linear system by hand using Gaussian elimination and verify your code's answer against it; explain why sample variance divides by $N-1$; compute a Bayes' theorem update by hand for a simple two-hypothesis case; and determine whether a small graph has an Eulerian circuit just by inspecting vertex degrees.
 
 ---
 
-## Stage 9 — SQL (optional, parallel track)
+## Stage 10 — SQL (optional, parallel track)
 
-**Goal:** a completely different mental model from everything above — SQL is *declarative* (you describe WHAT result you want; the engine decides HOW to get it), whereas every DSA chapter so far is *imperative* (you specify the exact steps). Like Stage 8, this doesn't block or get blocked by anything else here — only Stage 0/2 (variables, classes) are assumed. Pick it up any time.
+**Goal:** a completely different mental model from everything above — SQL is *declarative* (you describe WHAT result you want; the engine decides HOW to get it), whereas every DSA chapter so far is *imperative* (you specify the exact steps). Like Stage 9, this doesn't block or get blocked by anything else here — only Stage 0/2 (variables, classes) are assumed. Pick it up any time.
 
 | Order | Topic | Path | Covers |
 | :---: | :--- | :--- | :--- |
@@ -162,14 +188,16 @@ Full breakdown in [docs/sql.md](./docs/sql.md).
 1. Logic → Loops → Recursion → Patterns
 2. OOP Geometry
 3. Arrays (01 → 11, in file order)
-4. Hashing
-5. Heaps
-6. Graphs
-7. Dynamic Programming
-8. Matrices → Linear Algebra   (parallel track, any time after stage 2)
-9. SQL: DDL → DML → queries → aggregation → joins → subqueries →
-   set operations → window functions → views/indexes → transactions
+4. Stack → Queue → Linked List
+5. Hashing
+6. Heaps
+7. Graphs
+8. Dynamic Programming
+9. Matrices → Linear Algebra → Discrete Math → Statistics → Probability
    (parallel track, any time after stage 2)
+10. SQL: DDL → DML → queries → aggregation → joins → subqueries →
+    set operations → window functions → views/indexes → transactions
+    (parallel track, any time after stage 2)
 ```
 
 If you only have time for one thing: **do Arrays properly (Stage 3)**. It's the biggest chapter for a reason — most interview prep and most later chapters (heaps, graphs, DP) assume its patterns are second nature.
