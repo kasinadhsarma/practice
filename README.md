@@ -91,13 +91,33 @@ pratice/
 │   │                         #   identity, trace, is_symmetric, rotate90,
 │   │                         #   rank, inverse, power
 │   ├── algebra/
-│   │   └── linearalgebra/    # 📐 Vector algebra & linear systems
-│   │                         #   vector_addition, vector_subtraction,
-│   │                         #   scalar_vector_multiplication, dot_product,
-│   │                         #   cross_product, vector_magnitude,
-│   │                         #   vector_normalization, angle_between_vectors,
-│   │                         #   vector_projection, linear_independence,
-│   │                         #   solve_linear_system, cramers_rule
+│   │   ├── linearalgebra/    # 📐 Vector algebra & linear systems
+│   │   │                     #   vector_addition, vector_subtraction,
+│   │   │                     #   scalar_vector_multiplication, dot_product,
+│   │   │                     #   cross_product, vector_magnitude,
+│   │   │                     #   vector_normalization, angle_between_vectors,
+│   │   │                     #   vector_projection, linear_independence,
+│   │   │                     #   solve_linear_system, cramers_rule
+│   │   └── basicalgebra/     # ➗ Equations & polynomials
+│   │                         #   linear_equation, quadratic_equation,
+│   │                         #   polynomial_operations, exponents_roots
+│   ├── trigonometry/          # 📐 Angles & triangles
+│   │                         #   trig_ratios, pythagorean_identity,
+│   │                         #   law_of_sines, law_of_cosines, unit_circle
+│   ├── calculus/               # ∫ Limits, derivatives, integrals
+│   │                         #   limit_numerical, derivative_numerical,
+│   │                         #   power_rule_derivative, integral_numerical
+│   ├── number_theory/          # 🔢 Primes & divisibility
+│   │                         #   gcd_lcm, prime_sieve, prime_factorization,
+│   │                         #   euler_totient
+│   ├── coordinate_geometry/    # 📍 Points, lines, circles as equations
+│   │                         #   distance_formula, midpoint_formula,
+│   │                         #   slope_and_line_equation, circle_equation
+│   ├── sequences_series/       # 🔁 Progressions & closed-form sums
+│   │                         #   arithmetic_progression, geometric_progression,
+│   │                         #   fibonacci_binet, summation_formulas
+│   ├── geometry/               # 🧱 OOP shape classes — areas, perimeters,
+│   │                         #   surface areas, volumes, vectors, Pythagorean theorem
 │   ├── statistics/            # 📊 Descriptive statistics
 │   │                         #   mean, median, mode, data_range, variance,
 │   │                         #   standard_deviation, quartiles_iqr,
@@ -149,6 +169,13 @@ pratice/
 | 🧱 OOP — Geometry | [docs/oops-geometry.md](./docs/oops-geometry.md) | Areas, perimeters, surface areas, volumes |
 | 🔢 Mathematics — Matrices | [docs/mathmatics-matrices.md](./docs/mathmatics-matrices.md) | Addition → power: all 13 core matrix operations |
 | 📐 Mathematics — Linear Algebra | [docs/mathmatics-linearalgebra.md](./docs/mathmatics-linearalgebra.md) | Vector arithmetic/geometry + Gaussian elimination & Cramer's Rule for solving systems |
+| ➗ Mathematics — Algebra | [docs/mathmatics-algebra.md](./docs/mathmatics-algebra.md) | Linear & quadratic equations, polynomial operations, exponents/roots |
+| 📐 Mathematics — Trigonometry | [docs/mathmatics-trigonometry.md](./docs/mathmatics-trigonometry.md) | Trig ratios, Pythagorean identity, Law of Sines/Cosines, unit circle |
+| ∫ Mathematics — Calculus | [docs/mathmatics-calculus.md](./docs/mathmatics-calculus.md) | Numerical limits/derivatives/integrals, symbolic power-rule derivative |
+| 🔢 Mathematics — Number Theory | [docs/mathmatics-number-theory.md](./docs/mathmatics-number-theory.md) | GCD/LCM, Sieve of Eratosthenes, prime factorization, Euler's totient |
+| 📍 Mathematics — Coordinate Geometry | [docs/mathmatics-coordinate-geometry.md](./docs/mathmatics-coordinate-geometry.md) | Distance/midpoint formulas, slope & line equation, circle equation |
+| 🔁 Mathematics — Sequences & Series | [docs/mathmatics-sequences-series.md](./docs/mathmatics-sequences-series.md) | Arithmetic/geometric progressions, Binet's formula, summation formulas |
+| 🧱 Mathematics — Geometry | [docs/oops-geometry.md](./docs/oops-geometry.md) | Areas, perimeters, surface areas, volumes, vectors, Pythagorean theorem |
 | 📊 Mathematics — Statistics | [docs/mathmatics-statistics.md](./docs/mathmatics-statistics.md) | Mean, median, mode, variance, standard deviation, quartiles/IQR, covariance, correlation, z-score |
 | 🎲 Mathematics — Probability | [docs/mathmatics-probability.md](./docs/mathmatics-probability.md) | Core rules, conditional probability, Bayes' theorem, permutations/combinations, binomial & normal distributions |
 | 🧩 Mathematics — Discrete Math | [docs/mathmatics-discrete.md](./docs/mathmatics-discrete.md) | Sets, power set, truth tables, relations, functions, modular arithmetic, graph theory basics, pigeonhole principle |
@@ -235,6 +262,30 @@ python ./mathmatics/matrices/determinant.py
 python ./mathmatics/matrices/inverse.py
 python ./mathmatics/matrices/rank.py
 
+# Algebra
+python ./mathmatics/algebra/basicalgebra/quadratic_equation.py
+python ./mathmatics/algebra/basicalgebra/polynomial_operations.py
+
+# Trigonometry
+python ./mathmatics/trigonometry/trig_ratios.py
+python ./mathmatics/trigonometry/law_of_cosines.py
+
+# Calculus
+python ./mathmatics/calculus/derivative_numerical.py
+python ./mathmatics/calculus/integral_numerical.py
+
+# Number Theory
+python ./mathmatics/number_theory/prime_sieve.py
+python ./mathmatics/number_theory/euler_totient.py
+
+# Coordinate Geometry
+python ./mathmatics/coordinate_geometry/distance_formula.py
+python ./mathmatics/coordinate_geometry/circle_equation.py
+
+# Sequences & Series
+python ./mathmatics/sequences_series/geometric_progression.py
+python ./mathmatics/sequences_series/fibonacci_binet.py
+
 # Statistics
 python ./mathmatics/statistics/mean.py
 python ./mathmatics/statistics/variance.py
@@ -286,6 +337,13 @@ python ./sql/window_functions/window_functions.py
 | **Recursion** | 11 patterns across levels 1–3 | Basic self-reduction, recursion trees, tail/mutual recursion, backtracking |
 | **Matrices** | 13 operations | Arithmetic, transpose, determinant, inverse, rank, power |
 | **Linear Algebra** | 12 operations | Vector arithmetic/geometry, linear independence, Gaussian elimination, Cramer's Rule |
+| **Algebra** | 4 operations | Linear/quadratic equations, polynomial add/multiply/evaluate, exponents & roots |
+| **Trigonometry** | 5 operations | Right-triangle ratios, Pythagorean identity, Law of Sines/Cosines, unit circle |
+| **Calculus** | 4 operations | Numerical limits/derivatives/integrals, symbolic power-rule derivative |
+| **Number Theory** | 4 operations | GCD/LCM, prime sieve, prime factorization, Euler's totient |
+| **Coordinate Geometry** | 4 operations | Distance/midpoint, slope & line equation, circle-point classification |
+| **Sequences & Series** | 4 operations | Arithmetic/geometric progressions, Binet's formula, closed-form sums |
+| **Geometry** | 20+ shape classes | Areas, perimeters, surface areas, volumes, vectors, Pythagorean theorem |
 | **Statistics** | 10 operations | Central tendency, dispersion, covariance/correlation, z-score |
 | **Probability** | 10 operations | Core rules, Bayes' theorem, combinatorics, binomial & normal distributions |
 | **Discrete Math** | 9 operations | Sets, logic, relations/functions, modular arithmetic, graph theory, pigeonhole principle |
