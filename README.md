@@ -51,6 +51,16 @@ pratice/
 │   │                         #   connected components
 │   ├── heaps/                # 🏔️  Heap data structure
 │   │                         #   MaxHeap, MinHeap, kth_largest_element
+│   ├── stack/                 # 📚 Stack (LIFO)
+│   │                         #   stack_array, valid_parentheses,
+│   │                         #   min_stack, evaluate_postfix
+│   ├── queue/                  # 🎟️  Queue (FIFO)
+│   │                         #   queue_array, circular_queue,
+│   │                         #   queue_using_stacks, deque_basic
+│   ├── linked_list/            # 🔗 Linked List
+│   │                         #   singly_linked_list, doubly_linked_list,
+│   │                         #   reverse_linked_list, detect_cycle,
+│   │                         #   merge_two_sorted_lists
 │   ├── hashing/               # 🔑 Hashmap-based algorithms
 │   │                         #   isomorphic_strings, char_frequency_deficit,
 │   │                         #   two_sum, group_anagrams,
@@ -80,14 +90,29 @@ pratice/
 │   │                         #   scalar_multiplication, transpose, determinant,
 │   │                         #   identity, trace, is_symmetric, rotate90,
 │   │                         #   rank, inverse, power
-│   └── algebra/
-│       └── linearalgebra/    # 📐 Vector algebra & linear systems
-│                             #   vector_addition, vector_subtraction,
-│                             #   scalar_vector_multiplication, dot_product,
-│                             #   cross_product, vector_magnitude,
-│                             #   vector_normalization, angle_between_vectors,
-│                             #   vector_projection, linear_independence,
-│                             #   solve_linear_system, cramers_rule
+│   ├── algebra/
+│   │   └── linearalgebra/    # 📐 Vector algebra & linear systems
+│   │                         #   vector_addition, vector_subtraction,
+│   │                         #   scalar_vector_multiplication, dot_product,
+│   │                         #   cross_product, vector_magnitude,
+│   │                         #   vector_normalization, angle_between_vectors,
+│   │                         #   vector_projection, linear_independence,
+│   │                         #   solve_linear_system, cramers_rule
+│   ├── statistics/            # 📊 Descriptive statistics
+│   │                         #   mean, median, mode, data_range, variance,
+│   │                         #   standard_deviation, quartiles_iqr,
+│   │                         #   covariance, correlation, z_score
+│   ├── probability/            # 🎲 Probability & distributions
+│   │                         #   probability_of_event, complement_rule,
+│   │                         #   addition_rule, conditional_probability,
+│   │                         #   bayes_theorem, permutations, combinations,
+│   │                         #   binomial_distribution,
+│   │                         #   expected_value_variance, normal_distribution
+│   └── discrete/               # 🧩 Discrete mathematics
+│                             #   set_operations, power_set, cartesian_product,
+│                             #   truth_table, relations, functions_properties,
+│                             #   modular_arithmetic, graph_theory_basics,
+│                             #   pigeonhole_principle
 ├── sql/                      # 🗄️  SQL via sqlite3 (in-memory, testable)
 │   ├── ddl/                  #   create_table, alter_drop_table
 │   ├── dml/                  #   insert_update_delete
@@ -115,12 +140,18 @@ pratice/
 | 📊 DSA — Sorting | [docs/dsa-sorting.md](./docs/dsa-sorting.md) | Bubble, Insertion, Selection, Merge, Quick, Heap, Counting, Radix, Shell sort |
 | 🌐 DSA — Graphs | [docs/dsa-graphs.md](./docs/dsa-graphs.md) | BFS, DFS, Kruskal's, Prim's, Dijkstra, Bellman-Ford, Topological Sort, Floyd-Warshall, Cycle Detection, Connected Components |
 | 🏔️ DSA — Heaps | [docs/dsa-heaps.md](./docs/dsa-heaps.md) | MaxHeap, MinHeap, Kth Largest Element |
+| 📚 DSA — Stack | [docs/dsa-stack.md](./docs/dsa-stack.md) | Array-based stack, Valid Parentheses, Min Stack, Evaluate Postfix |
+| 🎟️ DSA — Queue | [docs/dsa-queue.md](./docs/dsa-queue.md) | Queue (deque-based), Circular Queue, Queue Using Two Stacks, Deque |
+| 🔗 DSA — Linked List | [docs/dsa-linked-list.md](./docs/dsa-linked-list.md) | Singly & Doubly Linked List, Reverse, Detect Cycle (Floyd's), Merge Two Sorted Lists |
 | 🔑 DSA — Hashing | [docs/dsa-hashing.md](./docs/dsa-hashing.md) | Isomorphic Strings, Two Sum, Group Anagrams, Longest Consecutive Sequence, and more |
 | 💡 DSA — Dynamic Programming | [docs/dsa-dp.md](./docs/dsa-dp.md) | Knapsack (0/1 & Fractional), LCS, LIS, Coin Change, Edit Distance, House Robber, Subset Sum, and more |
 | 📦 DSA — Arrays | [docs/dsa-arrays.md](./docs/dsa-arrays.md) | 11 files, ~144 functions — see [dsa/Arrays/README.md](./dsa/Arrays/README.md) for the full topic map |
 | 🧱 OOP — Geometry | [docs/oops-geometry.md](./docs/oops-geometry.md) | Areas, perimeters, surface areas, volumes |
 | 🔢 Mathematics — Matrices | [docs/mathmatics-matrices.md](./docs/mathmatics-matrices.md) | Addition → power: all 13 core matrix operations |
 | 📐 Mathematics — Linear Algebra | [docs/mathmatics-linearalgebra.md](./docs/mathmatics-linearalgebra.md) | Vector arithmetic/geometry + Gaussian elimination & Cramer's Rule for solving systems |
+| 📊 Mathematics — Statistics | [docs/mathmatics-statistics.md](./docs/mathmatics-statistics.md) | Mean, median, mode, variance, standard deviation, quartiles/IQR, covariance, correlation, z-score |
+| 🎲 Mathematics — Probability | [docs/mathmatics-probability.md](./docs/mathmatics-probability.md) | Core rules, conditional probability, Bayes' theorem, permutations/combinations, binomial & normal distributions |
+| 🧩 Mathematics — Discrete Math | [docs/mathmatics-discrete.md](./docs/mathmatics-discrete.md) | Sets, power set, truth tables, relations, functions, modular arithmetic, graph theory basics, pigeonhole principle |
 | 🗄️ SQL | [docs/sql.md](./docs/sql.md) | DDL, DML, joins, subqueries, set operations, window functions, views/indexes, transactions — via in-memory sqlite3 |
 
 ---
@@ -179,6 +210,21 @@ python ./dsa/graphs/connected_components.py
 python ./dsa/heaps/minheap.py
 python ./dsa/heaps/kth_largest_element.py
 
+# Stack
+python ./dsa/stack/valid_parentheses.py
+python ./dsa/stack/min_stack.py
+python ./dsa/stack/evaluate_postfix.py
+
+# Queue
+python ./dsa/queue/queue_array.py
+python ./dsa/queue/circular_queue.py
+python ./dsa/queue/queue_using_stacks.py
+
+# Linked List
+python ./dsa/linked_list/singly_linked_list.py
+python ./dsa/linked_list/reverse_linked_list.py
+python ./dsa/linked_list/detect_cycle.py
+
 # Hashing
 python ./dsa/hashing/two_sum.py
 python ./dsa/hashing/group_anagrams.py
@@ -188,6 +234,21 @@ python ./dsa/hashing/isomorphic_strings.py
 python ./mathmatics/matrices/determinant.py
 python ./mathmatics/matrices/inverse.py
 python ./mathmatics/matrices/rank.py
+
+# Statistics
+python ./mathmatics/statistics/mean.py
+python ./mathmatics/statistics/variance.py
+python ./mathmatics/statistics/correlation.py
+
+# Probability
+python ./mathmatics/probability/bayes_theorem.py
+python ./mathmatics/probability/binomial_distribution.py
+python ./mathmatics/probability/normal_distribution.py
+
+# Discrete Mathematics
+python ./mathmatics/discrete/set_operations.py
+python ./mathmatics/discrete/truth_table.py
+python ./mathmatics/discrete/graph_theory_basics.py
 
 # Arrays
 python ./dsa/Arrays/02_searching.py
@@ -211,6 +272,9 @@ python ./sql/window_functions/window_functions.py
 | **Sorting** | Bubble, Insertion, Selection, Merge, Quick, Heap, Counting, Radix, Shell | Comparison & non-comparison sorting |
 | **Graphs** | BFS, DFS, Kruskal's, Prim's, Dijkstra, Bellman-Ford, Topological Sort, Floyd-Warshall, Cycle Detection, Connected Components | Traversal, MST, shortest paths, ordering |
 | **Heaps** | MaxHeap, MinHeap, Kth Largest Element | Priority queue, $\mathcal{O}(\log N)$ ops |
+| **Stack** | Array-based Stack, Valid Parentheses, Min Stack, Evaluate Postfix | LIFO, single-end access, $\mathcal{O}(1)$ push/pop |
+| **Queue** | Queue (deque), Circular Queue, Queue Using Two Stacks, Deque | FIFO, opposite-end access, $\mathcal{O}(1)$ enqueue/dequeue |
+| **Linked List** | Singly & Doubly Linked List, Reverse, Detect Cycle, Merge Two Sorted Lists | Chained nodes, $\mathcal{O}(1)$ head insert, pointer manipulation |
 | **Hashing** | Isomorphic Strings, Char Frequency Deficit, Two Sum, Group Anagrams, Longest Consecutive Sequence, First Unique Character, Subarray Sum Equals K | Hashmap / frequency-array lookups, $\mathcal{O}(1)$ average |
 | **Dynamic Programming** | 0/1 & Fractional Knapsack, LCS, LIS, Coin Change, Edit Distance, House Robber, Subset Sum, LPS, Matrix Chain Mult. | Overlapping subproblems, optimal substructure |
 | **Arrays** | ~144 functions across 11 files | Searching, sorting, two-pointer, sliding window, prefix sum, segment/Fenwick/sparse trees, 2D matrix, and more |
@@ -222,4 +286,7 @@ python ./sql/window_functions/window_functions.py
 | **Recursion** | 11 patterns across levels 1–3 | Basic self-reduction, recursion trees, tail/mutual recursion, backtracking |
 | **Matrices** | 13 operations | Arithmetic, transpose, determinant, inverse, rank, power |
 | **Linear Algebra** | 12 operations | Vector arithmetic/geometry, linear independence, Gaussian elimination, Cramer's Rule |
+| **Statistics** | 10 operations | Central tendency, dispersion, covariance/correlation, z-score |
+| **Probability** | 10 operations | Core rules, Bayes' theorem, combinatorics, binomial & normal distributions |
+| **Discrete Math** | 9 operations | Sets, logic, relations/functions, modular arithmetic, graph theory, pigeonhole principle |
 | **SQL** | 11 classes across 9 topics | DDL/DML, joins, subqueries, set operations, window functions, views/indexes, transactions |
